@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+      xmlns:content="http://purl.org/rss/1.0/modules/content/"
+      xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+      xmlns:podcast="https://podcastindex.org/namespace/1.0">
+      <channel>
+            <atom:link href="https://feeds.simplecast.com/JJrAJ_VY" rel="self" title="MP3 Audio"
+                  type="application/atom+xml" />
+            <atom:link href="https://simplecast.superfeedr.com/" rel="hub"
+                  xmlns="http://www.w3.org/2005/Atom" />
+            <generator>https://simplecast.com</generator>
+            <title>Still Processing</title>
+            <description>Wesley Morris and J Wortham are working it out in this weekly show about
+                  culture in the broadest sense. That means television, film, books, music — but
+                  also the culture of work, dating, the internet and how those all fit together.
+                  Listen to this podcast in New York Times Audio, our new iOS app for news
+                  subscribers. Download now at nytimes.com/audioapp</description>
+            <copyright>© 2018-2019 THE NEW YORK TIMES COMPANY; The New York Times encourages the use
+                  of RSS feeds for personal use in a news reader or as part of a non-commercial
+                  blog, subject to your agreement to our Terms of Service.</copyright>
+            <language>en</language>
+            <pubDate>Tue, 6 Dec 2022 21:00:00 +0000</pubDate>
+            <lastBuildDate>Wed, 17 May 2023 11:11:25 +0000</lastBuildDate>
+            <image>
+                  <link>http://www.nytimes.com/podcasts/still-processing</link>
+                  <title>Still Processing</title>
+                  <url>
+                        https://image.simplecastcdn.com/images/20c893a5-2afa-416d-932c-267cdadbaeba/92d71e1c-c3c4-435e-ad3f-6a58208034cd/3000x3000/nyt-stillprocessing-3000px-1.jpg?aid=rss_feed</url>
+            </image>
+            <link>http://www.nytimes.com/podcasts/still-processing</link>
+            <itunes:type>episodic</itunes:type>
+            <itunes:summary>Wesley Morris and J Wortham are working it out in this weekly show about
+                  culture in the broadest sense. That means television, film, books, music — but
+                  also the culture of work, dating, the internet and how those all fit together.
+                  Listen to this podcast in New York Times Audio, our new iOS app for news
+                  subscribers. Download now at nytimes.com/audioapp</itunes:summary>
+            <itunes:author>The New York Times</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image
+                  href="https://image.simplecastcdn.com/images/20c893a5-2afa-416d-932c-267cdadbaeba/92d71e1c-c3c4-435e-ad3f-6a58208034cd/3000x3000/nyt-stillprocessing-3000px-1.jpg?aid=rss_feed" />
+            <itunes:new-feed-url>https://feeds.simplecast.com/JJrAJ_VY</itunes:new-feed-url>
+            <itunes:owner>
+                  <itunes:name>Still Processing</itunes:name>
+                  <itunes:email>stillprocessing@nytimes.com</itunes:email>
+            </itunes:owner>
+            <itunes:category text="Society &amp; Culture" />
+            <itunes:category text="News">
+                  <itunes:category text="News Commentary" />
+            </itunes:category>
+            <itunes:category text="Arts" />
+            <item>
+                  <guid isPermaLink="false">84ce44a3-188b-400b-8aa6-46b28be490c8</guid>
+                  <title>America Has a Problem</title>
+                  <description><![CDATA[<p>Today: The undoing of Kanye West. “We’re in deeply vile territory, and I can’t make intellectual sense of that,” Wesley Morris says about West, who now goes by Ye.</p><p>In 2004, when Ye released “College Dropout," he seemed to be challenging Black orthodoxy in ways that felt exciting and risky. But over the years, his expression of “freedom” has felt anything but free. His embrace of anti-Black, antisemitic and white supremacist language “comes at the expense of other people’s safety,” their humanity and their dignity, J Wortham says.</p><p>Wesley and J discuss what it means to divest from someone whose art, for two decades, had awed, challenged and excited you.</p>
+]]></description>
+                  <pubDate>Tue, 6 Dec 2022 21:00:00 +0000</pubDate>
+                  <author>stillprocessing@nytimes.com (Still Processing)</author>
+                  <link>http://www.nytimes.com/podcasts/still-processing</link>
+                  <content:encoded><![CDATA[<p>Today: The undoing of Kanye West. “We’re in deeply vile territory, and I can’t make intellectual sense of that,” Wesley Morris says about West, who now goes by Ye.</p><p>In 2004, when Ye released “College Dropout," he seemed to be challenging Black orthodoxy in ways that felt exciting and risky. But over the years, his expression of “freedom” has felt anything but free. His embrace of anti-Black, antisemitic and white supremacist language “comes at the expense of other people’s safety,” their humanity and their dignity, J Wortham says.</p><p>Wesley and J discuss what it means to divest from someone whose art, for two decades, had awed, challenged and excited you.</p>
+]]></content:encoded>
+                  <enclosure length="38058218" type="audio/mpeg"
+                        url="https://dts.podtrac.com/redirect.mp3/chrt.fm/track/8DB4DB/pdst.fm/e/pfx.vpixl.com/6qj4J/nyt.simplecastaudio.com/2893446d-8730-4532-8321-b81d2bb2b03b/episodes/30b8e8bb-8022-4abd-bbf0-21759ffc7983/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=2893446d-8730-4532-8321-b81d2bb2b03b&amp;awEpisodeId=30b8e8bb-8022-4abd-bbf0-21759ffc7983&amp;feed=JJrAJ_VY" />
+                  <itunes:title>America Has a Problem</itunes:title>
+                  <itunes:author>Still Processing</itunes:author>
+                  <itunes:duration>00:39:38</itunes:duration>
+                  <itunes:summary>Today: The undoing of Kanye West. “We’re in deeply vile territory,
+                        and I can’t make intellectual sense of that,” Wesley Morris says about West,
+                        who now goes by Ye.
+
+                        In 2004, when Ye released “College Dropout,&quot; he seemed to be
+                        challenging Black orthodoxy in ways that felt exciting and risky. But over
+                        the years, his expression of “freedom” has felt anything but free. His
+                        embrace of anti-Black, antisemitic and white supremacist language “comes at
+                        the expense of other people’s safety,” their humanity and their dignity, J
+                        Wortham says.
+
+                        Wesley and J discuss what it means to divest from someone whose art, for two
+                        decades, had awed, challenged and excited you.</itunes:summary>
+                  <itunes:subtitle>Today: The undoing of Kanye West. “We’re in deeply vile
+                        territory, and I can’t make intellectual sense of that,” Wesley Morris says
+                        about West, who now goes by Ye.
+
+                        In 2004, when Ye released “College Dropout,&quot; he seemed to be
+                        challenging Black orthodoxy in ways that felt exciting and risky. But over
+                        the years, his expression of “freedom” has felt anything but free. His
+                        embrace of anti-Black, antisemitic and white supremacist language “comes at
+                        the expense of other people’s safety,” their humanity and their dignity, J
+                        Wortham says.
+
+                        Wesley and J discuss what it means to divest from someone whose art, for two
+                        decades, had awed, challenged and excited you.</itunes:subtitle>
+                  <itunes:explicit>no</itunes:explicit>
+                  <itunes:episodeType>full</itunes:episodeType>
+                  <itunes:episode>153</itunes:episode>
+            </item>
+            <item>
+                  <guid isPermaLink="false">7ca4df85-caa5-4bbe-910a-5e480b356835</guid>
+                  <title>Plastic Off the Sofa</title>
+                  <description><![CDATA[<p>“Black Panther: Wakanda Forever” came into theaters with a huge responsibility: It had to address the death of Chadwick Boseman, the star of the first “Black Panther” movie, who died of cancer in August 2020.</p><p>Wesley and J discuss how the film offers the audience an experience of collective grief and mourning — something that never happened in the United States in response to the losses of 2020. They interrogate what it means that this gesture of healing came from Marvel and Disney, a corporate empire that is in control of huge swaths of our entertainment, and not from another type of leadership.</p><p><strong>Additional resources:</strong></p><ul><li>To hear what Wesley and J had to say about the first “Black Panther” movie, <a href="https://www.nytimes.com/2018/03/16/podcasts/still-processing-we-sink-our-claws-into-black-panther-with-ta-nehisi-coates.html" target="_blank">listen to this episode of “Still Processing” from 2018</a>.<br /> </li><li>Ryan Coogler, the director of “Wakanda Forever,” spoke to the author Ta-Nehisi Coates about the making of movie, and how it captured the real-life grief that people experienced after Chadwick Boseman’s death. <a href="https://open.spotify.com/episode/5NkuU0ZRHpuJ9AJX4whAAH?si=A-XqWhHXTuuy-Ck7MLkK9w" target="_blank">Listen to their conversation here</a>.</li></ul>
+]]></description>
+                  <pubDate>Tue, 29 Nov 2022 21:00:00 +0000</pubDate>
+                  <author>stillprocessing@nytimes.com (Still Processing)</author>
+                  <link>http://www.nytimes.com/podcasts/still-processing</link>
+                  <content:encoded><![CDATA[<p>“Black Panther: Wakanda Forever” came into theaters with a huge responsibility: It had to address the death of Chadwick Boseman, the star of the first “Black Panther” movie, who died of cancer in August 2020.</p><p>Wesley and J discuss how the film offers the audience an experience of collective grief and mourning — something that never happened in the United States in response to the losses of 2020. They interrogate what it means that this gesture of healing came from Marvel and Disney, a corporate empire that is in control of huge swaths of our entertainment, and not from another type of leadership.</p><p><strong>Additional resources:</strong></p><ul><li>To hear what Wesley and J had to say about the first “Black Panther” movie, <a href="https://www.nytimes.com/2018/03/16/podcasts/still-processing-we-sink-our-claws-into-black-panther-with-ta-nehisi-coates.html" target="_blank">listen to this episode of “Still Processing” from 2018</a>.<br /> </li><li>Ryan Coogler, the director of “Wakanda Forever,” spoke to the author Ta-Nehisi Coates about the making of movie, and how it captured the real-life grief that people experienced after Chadwick Boseman’s death. <a href="https://open.spotify.com/episode/5NkuU0ZRHpuJ9AJX4whAAH?si=A-XqWhHXTuuy-Ck7MLkK9w" target="_blank">Listen to their conversation here</a>.</li></ul>
+]]></content:encoded>
+                  <enclosure length="28836087" type="audio/mpeg"
+                        url="https://dts.podtrac.com/redirect.mp3/chrt.fm/track/8DB4DB/pdst.fm/e/pfx.vpixl.com/6qj4J/nyt.simplecastaudio.com/2893446d-8730-4532-8321-b81d2bb2b03b/episodes/913b929e-5de1-41cb-8f95-107b2241cb83/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=2893446d-8730-4532-8321-b81d2bb2b03b&amp;awEpisodeId=913b929e-5de1-41cb-8f95-107b2241cb83&amp;feed=JJrAJ_VY" />
+                  <itunes:title>Plastic Off the Sofa</itunes:title>
+                  <itunes:author>Still Processing</itunes:author>
+                  <itunes:duration>00:30:02</itunes:duration>
+                  <itunes:summary>“Black Panther: Wakanda Forever” came into theaters with a huge
+                        responsibility: It had to address the death of Chadwick Boseman, the star of
+                        the first “Black Panther” movie, who died of cancer in August 2020.
+
+                        Wesley and J discuss how the film offers the audience an experience of
+                        collective grief and mourning — something that never happened in the United
+                        States in response to the losses of 2020. They interrogate what it means
+                        that this gesture of healing came from Marvel and Disney, a corporate empire
+                        that is in control of huge swaths of our entertainment, and not from another
+                        type of leadership.</itunes:summary>
+                  <itunes:subtitle>“Black Panther: Wakanda Forever” came into theaters with a huge
+                        responsibility: It had to address the death of Chadwick Boseman, the star of
+                        the first “Black Panther” movie, who died of cancer in August 2020.
+
+                        Wesley and J discuss how the film offers the audience an experience of
+                        collective grief and mourning — something that never happened in the United
+                        States in response to the losses of 2020. They interrogate what it means
+                        that this gesture of healing came from Marvel and Disney, a corporate empire
+                        that is in control of huge swaths of our entertainment, and not from another
+                        type of leadership.</itunes:subtitle>
+                  <itunes:explicit>no</itunes:explicit>
+                  <itunes:episodeType>full</itunes:episodeType>
+                  <itunes:episode>152</itunes:episode>
+            </item>
+      </channel>
+</rss>

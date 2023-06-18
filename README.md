@@ -23,7 +23,32 @@ composer require kiwilan/php-rss
 
 ## Usage
 
-// TODO
+### Podcast
+
+Podcast RSS feed is quite old and has a lot of different versions. This package is based on the [Podcast namespace](https://podcastnamespace.org/) and the [Apple Podcasts tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390).
+
+```php
+$podcast = Feed::make()->podcast();
+
+$podcast->title('2 Heures De Perdues');
+$podcast->link('https://www.2hdp.fr');
+$podcast->subtitle('Pourquoi gagner du temps quand on peut en perdre devant de mauvais films ?');
+$podcast->description('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
+$podcast->language('fr');
+$podcast->copyright('℗ & © 2019 Fréquence Moderne');
+$podcast->lastUpdate(new DateTime('2021-09-01 00:00:00'));
+$podcast->webmaster('feeds@ausha.co (Ausha)');
+$podcast->generator('Ausha (https://www.ausha.co)');
+$podcast->keywords(['films', 'critiques', 'comédie']);
+$podcast->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com');
+$podcast->explicit(ItunesExplicit::yes);
+$podcast->isPrivate();
+$podcast->type(ItunesTypeEnum::episodic);
+$podcast->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews);
+$podcast->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
+
+$podcast->get(); // Get XML feed
+```
 
 ## Testing
 
@@ -39,6 +64,10 @@ composer test
 -   <https://www.castfeedvalidator.com/validate.php>
 -   <https://help.podbean.com/support/solutions/articles/25000010756-how-to-set-ios11-itunes-feed-tags-in-your-podcast>
 -   <https://castos.com/podcast-rss-feed/>
+-   <https://validator.livewire.io/>
+-   <https://podcastnamespace.org/>
+-   <https://help.apple.com/itc/podcasts_connect/#/itcb54353390>
+-   <https://support.google.com/podcast-publishers/answer/9889544?visit_id=638227134075061333-1333811411&rd=1>
 
 ## Changelog
 

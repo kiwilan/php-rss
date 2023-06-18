@@ -5,10 +5,10 @@ use Kiwilan\Rss\Enums\ItunesExplicit;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
+use Kiwilan\Rss\Tests\Utils\XmlReader;
 
 it('can make podcast feed', function () {
-    $feed = Feed::make();
-    $podcast = $feed->podcast();
+    $podcast = Feed::make()->podcast();
     $podcast->title('2 Heures De Perdues');
     $podcast->link('https://www.2hdp.fr');
     $podcast->subtitle('Pourquoi gagner du temps quand on peut en perdre devant de mauvais films ?');
@@ -34,4 +34,7 @@ it('can make podcast feed', function () {
     $podcast->save(OUTPUT.'/feed-podcast.xml');
 
     ray($podcast);
+
+    $reader = XmlReader::make(OUTPUT.'/feed-podcast.xml');
+    ray($reader);
 });

@@ -12,6 +12,8 @@ class FeedConstants
         'xmlns:spotify' => 'http://www.spotify.com/ns/rss',
         'xmlns:psc' => 'http://podlove.org/simple-chapters/',
         'xmlns:media' => 'https://search.yahoo.com/mrss/',
+        'xmlns:podcastindex' => 'https://podcastindex.org/namespace/1.0',
+        'xmlns:podlove' => 'http://podlove.org/simple-chapters/',
         'version' => '2.0',
     ];
 }

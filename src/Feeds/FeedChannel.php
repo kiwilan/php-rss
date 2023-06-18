@@ -17,6 +17,9 @@ class FeedChannel
         return new static($feed);
     }
 
+    /**
+     * Get the feed as xml string.
+     */
     public function get(): string
     {
         ray($this->feed->items());
