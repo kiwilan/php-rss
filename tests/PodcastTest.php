@@ -25,7 +25,7 @@ it('can make podcast feed', function () {
     $podcast->isPrivate(false);
     $podcast->type(ItunesTypeEnum::episodic);
     $podcast->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews);
-    $podcast->image('tests/examples/folder.jpeg');
+    $podcast->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
 
     $podcast->get();
     $podcast->save(OUTPUT.'/feed-podcast.xml');

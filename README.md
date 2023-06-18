@@ -1,18 +1,17 @@
-# This is my package php-rss
+# PHP RSS
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/kiwilan/php-rss.svg?style=flat-square)](https://packagist.org/packages/kiwilan/php-rss)
-[![Tests](https://img.shields.io/github/actions/workflow/status/kiwilan/php-rss/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/kiwilan/php-rss/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/kiwilan/php-rss.svg?style=flat-square)](https://packagist.org/packages/kiwilan/php-rss)
+[![php][php-version-src]][php-version-href]
+[![version][version-src]][version-href]
+[![downloads][downloads-src]][downloads-href]
+[![license][license-src]][license-href]
+[![tests][tests-src]][tests-href]
+[![codecov][codecov-src]][codecov-href]
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+> **Warning**
+>
+> NOT READY FOR PRODUCTION
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/php-rss.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/php-rss)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+PHP package to generate RSS feeds with presets.
 
 ## Installation
 
@@ -24,10 +23,7 @@ composer require kiwilan/php-rss
 
 ## Usage
 
-```php
-$skeleton = new Kiwilan\Rss();
-echo $skeleton->echoPhrase('Hello, Kiwilan!');
-```
+// TODO
 
 ## Testing
 
@@ -39,19 +35,25 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
-- [Ewilan Rivière](https://github.com/kiwilan)
-- [All Contributors](../../contributors)
+-   [`spatie`](https://github.com/spatie) for `spatie/package-skeleton-php`
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[<img src="https://user-images.githubusercontent.com/48261459/201463225-0a5a084e-df15-4b11-b1d2-40fafd3555cf.svg" height="120rem" width="100%" />](https://github.com/kiwilan)
+
+[version-src]: https://img.shields.io/packagist/v/kiwilan/php-rss.svg?style=flat-square&colorA=18181B&colorB=777BB4
+[version-href]: https://packagist.org/packages/kiwilan/php-rss
+[php-version-src]: https://img.shields.io/static/v1?style=flat-square&label=PHP&message=v8.1&color=777BB4&logo=php&logoColor=ffffff&labelColor=18181b
+[php-version-href]: https://www.php.net/
+[downloads-src]: https://img.shields.io/packagist/dt/kiwilan/php-rss.svg?style=flat-square&colorA=18181B&colorB=777BB4
+[downloads-href]: https://packagist.org/packages/kiwilan/php-rss
+[license-src]: https://img.shields.io/github/license/kiwilan/php-rss.svg?style=flat-square&colorA=18181B&colorB=777BB4
+[license-href]: https://github.com/kiwilan/php-rss/blob/main/README.md
+[tests-src]: https://img.shields.io/github/actions/workflow/status/kiwilan/php-rss/run-tests.yml?branch=main&label=tests&style=flat-square&colorA=18181B
+[tests-href]: https://packagist.org/packages/kiwilan/php-rss
+[codecov-src]: https://codecov.io/gh/kiwilan/php-rss/branch/main/graph/badge.svg?token=P9XIK2KV9G
+[codecov-href]: https://codecov.io/gh/kiwilan/php-rss
