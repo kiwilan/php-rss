@@ -24,6 +24,7 @@ it('can make podcast feed', function () {
     $podcast->isPrivate();
     $podcast->type(ItunesTypeEnum::episodic);
     $podcast->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews);
+    $podcast->addCategory(ItunesCategoryEnum::leisure, ItunesSubCategoryEnum::leisure_hobbies);
     $podcast->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
 
     foreach (ITEMS as $item) {
@@ -56,8 +57,13 @@ it('can make podcast feed', function () {
     expect($channel['itunes:explicit'])->toBe('yes');
     expect($channel['itunes:block'])->toBe('Yes');
     expect($channel['itunes:type'])->toBe('episodic');
-    expect($channel['itunes:category']['@attributes']['text'])->toBe('TV &amp; Film');
-    expect($channel['itunes:category']['itunes:category']['@attributes']['text'])->toBe('Film Reviews');
+
+    expect($channel['category'][0])->toBe('TV &amp; Film');
+    expect($channel['category'][1])->toBe('Leisure');
+    expect($channel['itunes:category'][0]['@attributes']['text'])->toBe('TV &amp; Film');
+    expect($channel['itunes:category'][0]['itunes:category']['@attributes']['text'])->toBe('Film Reviews');
+    expect($channel['itunes:category'][1]['@attributes']['text'])->toBe('Leisure');
+    expect($channel['itunes:category'][1]['itunes:category']['@attributes']['text'])->toBe('Hobbies');
     expect($channel['itunes:image']['@attributes']['href'])->toBe('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
     expect($channel['item'])->toBeArray();
     expect($channel['item'])->toHaveCount(2);

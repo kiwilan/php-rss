@@ -205,13 +205,19 @@ class PodcastChannel extends FeedChannel
 
     public function addCategory(ItunesCategoryEnum $category, ?ItunesSubCategoryEnum $subCategory = null): self
     {
+        $size = 1;
+        if ($this->categories) {
+            $size = count($this->categories) + 1;
+        }
+
         $this->categories[] = [
             $category,
             $subCategory,
         ];
+
         $this->feed->setChannel([
-            'category' => $category->value,
-            'itunes:category' => [
+            '__custom:category:'.$size => $category->value,
+            '__custom:itunes\\:category:'.$size => [
                 '_attributes' => [
                     'text' => $category->value,
                 ],

@@ -1,6 +1,7 @@
 {
     "name": "kiwilan/php-rss",
     "description": "PHP package to generate RSS feeds with presets.",
+    "version": "0.1.0",
     "keywords": [
         "php",
         "rss",
