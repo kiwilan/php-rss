@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~files/feed-premium.xsl"?>
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:media="http://search.yahoo.com/mrss/" xmlns:podaccess="https://access.acast.com/schema/1.0/"
+  xmlns:acast="https://schema.acast.com/1.0/" xmlns:feedpress="https://feed.press/xmlns"
+  xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  version="2.0">
+  <channel>
+    <feedpress:locale>en</feedpress:locale>
+    <atom:link rel="hub" href="http://feedpress.superfeedr.com/" />
+    <image>
+      <link>http://www.rdvtech.fr/</link>
+      <title><![CDATA[Le rendez-vous Tech]]></title>
+      <url>https://static.feedpress.com/logo/rdvtech-612f2a32d5aee.png</url>
+    </image>
+    <itunes:category text="News">
+      <itunes:category text="Tech News" />
+    </itunes:category>
+    <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">News/Tech News</media:category>
+    <itunes:category text="Technology" />
+    <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Technology</media:category>
+    <itunes:category text="Business">
+      <itunes:category text="Marketing" />
+    </itunes:category>
+    <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Business/Marketing</media:category>
+    <itunes:category text="Society &amp; Culture" />
+    <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Society &amp; Culture</media:category>
+    <itunes:category text="News">
+      <itunes:category text="Business News" />
+    </itunes:category>
+    <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">News/Business News</media:category>
+    <media:rating>nonadult</media:rating>
+    <media:description type="plain">On résume chaque semaine tout le monde de la tech. Un podcast
+      pour tous, compréhensible, intéressant et fun !</media:description>
+    <media:credit role="author">frenchspin</media:credit>
+    <media:keywords>Patrick Beja, NotPatrick, frenchspin, RDV Tech, rendez-vous Tech, Le rendez-vous
+      Tech, RDV, iPhone, Android, internet, tech, tech news, technologie, GAFAM, GAFA, apple,
+      google, microsoft, amazon, facebook, twitter, tiktok, deep learning, fintech, ai</media:keywords>
+    <media:copyright>frenchspin</media:copyright>
+    <dc:creator>frenchspin</dc:creator>
+    <feedpress:podcastId>303492600</feedpress:podcastId>
+    <googleplay:email>patrick@frenchspin.com</googleplay:email>
+    <googleplay:description>On résume chaque semaine tout le monde de la tech. Un podcast pour tous,
+      compréhensible, intéressant et fun !&#13;
+      &#13;
+      Dans le RDV Tech, nous traitons des nouveautés et de l’actualité du net, des gadgets et de la
+      technologie en général. Nous parlons des nouveautés techniques, des mouvements du marché et de
+      l’évolution de l’industrie, toujours du point de vue des utilisateurs éclairés que nous
+      sommes... et toujours dans la bonne humeur !&#13;
+      &#13;
+      -- Si vous voulez soutenir l'émission, rendez-vous sur https://patreon.com/RDVTech. --</googleplay:description>
+    <googleplay:explicit>no</googleplay:explicit>
+    <googleplay:author>frenchspin</googleplay:author>
+    <ttl>60</ttl>
+    <generator>acast.com</generator>
+    <title>Le rendez-vous Tech</title>
+    <link>http://www.rdvtech.fr/</link>
+    <atom:link href="https://feedpress.me/rdvtech" rel="self" type="application/rss+xml" />
+    <language>fr</language>
+    <copyright>frenchspin</copyright>
+    <itunes:keywords>Patrick Beja, NotPatrick, frenchspin, RDV Tech, rendez-vous Tech, Le
+      rendez-vous Tech, RDV, iPhone, Android, internet, tech, tech news, technologie, GAFAM, GAFA,
+      apple, google, microsoft, amazon, facebook, twitter, tiktok, deep learning, fintech, ai</itunes:keywords>
+    <itunes:author>frenchspin</itunes:author>
+    <itunes:subtitle>On résume chaque semaine tout le monde de la tech. Un podcast pour tous,
+      compréhensible, intéressant et fun !</itunes:subtitle>
+    <itunes:summary>On résume chaque semaine tout le monde de la tech. Un podcast pour tous,
+      compréhensible, intéressant et fun !&#13;
+      &#13;
+      Dans le RDV Tech, nous traitons des nouveautés et de l’actualité du net, des gadgets et de la
+      technologie en général. Nous parlons des nouveautés techniques, des mouvements du marché et de
+      l’évolution de l’industrie, toujours du point de vue des utilisateurs éclairés que nous
+      sommes... et toujours dans la bonne humeur !&#13;
+      &#13;
+      -- Si vous voulez soutenir l'émission, rendez-vous sur https://patreon.com/RDVTech. --</itunes:summary>
+    <description>On résume chaque semaine tout le monde de la tech. Un podcast pour tous,
+      compréhensible, intéressant et fun !</description>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:owner>
+      <itunes:email>patrick@frenchspin.com</itunes:email>
+      <itunes:name>frenchspin</itunes:name>
+    </itunes:owner>
+    <acast:showId>b9e1260d-4777-4c20-bd86-88cf343c8ece</acast:showId>
+    <acast:showUrl>le-rdv-tech</acast:showUrl>
+    <acast:signature key="EXAMPLE" algorithm="aes-256-cbc"><![CDATA[9P6GrxxRmULhCY7a/zJQNg==]]></acast:signature>
+    <acast:settings><![CDATA[7ji1Xtyp3ovwQ4N4f9UVWYwLXN/CMNLuKPCG3T/vRVEz4/2/iKUb9xp6520ePuttbXrrmDhR460sO42sVx9yROggoMAXvLJ+BwESdfdy2ubv1tFR28pZAw9soCkTdpyM00tdMcVTNwhgAw7+kJq9IUFZBmL7rt93upngJ1yiic31HoSVz9xq7L7w5VOqUYsohkIWWWHuwHWiLEp63TjwbSQQAxlaoRY1K/3c7ZGaHYLRob3ptP3fXrbNAAX+4Q8UmyhXRT2UKKytr/Zz/zVJ8jTfQRCWnWKA5rJ5yaAcat6KWR9xr6yjvblfGwKmlxD7NEisZNf6GbrirdqfxxGjhPlu3yb/zPJN5LIhdYghs4RuxB63CHQNhHENPZb9j+2Fn5NBkD75Q/V+FlBhDoQTKoqbUUEyQi/V93tZg+zC0/qq/Cuw4natDWLW+NqhMaJ9vEJrM0rNNMtGSQvCBl6R7kYPPQO02n8wdAZURVUaioD4eMGlQxipQRSYCBAqgTh3XH4ZrDNu7nX+fSXKr/diLS/dc/EQjfQo5L6DyFsg0dfJLtLUjNMbszLFUuQreMDurAp3mpNFVr8PZYNv6SerQ5+bLueRQOjYUpSiW01zCOrpF8Eud4TXtG3n6KbFpkNfpsTtkH2tWkcSyxzaXvJds5YLSD6JRY5IRPP5ty8d4bqjYqNb8vbBsAe811zcQdCcdAoqwVN4xLStHtYjVw63ERtccVTin5RSjtnvhVJQLrUC0FsRldj87SHsHtgsCM3E8/m6BBtCJteTgOMMKqjnPVKAw4hbnXc5pyr0Mk9kZHvQsEEeAfMeTnv8MzW29puTwYkspuUFiT0gNc1uYZ+9c+xcnqEaWUtOzyPFnhjwrP++nxD3hIIK6Y8VIrZ8vE7V/mGi9TU59KLQNMMI/Y69VVMC91Qo1ip42O/TjbIk7kxm/m7kYP05sr2RUeKW06X4AlOHERTX5Z+GVprw8chMSPHia13Pbg/7DmYz/Z9C2lv6AGFDxSMl8zp5i5E+/XbSRlTQNE7r6UvOA26wjhSVXtKwa/6aZlwq++Z+aKwCismtSo4bDTwICVCV+N5dRuXSJnB+1T03oQSl/CwzMpq+zI/og3PQ/5UPXRN6e4KZ8hPTF4saqwZ945R/cDiqNxAcVTFVJkR8A4BbBPEByyc1yc9xhYncb/xkzJJMFUaBd6fCzuUsDhndqposiie0p9jfsp5rlOtMyol6ep+rMkTvbGv7CVTPdvzbPEEYMsh/Q1abZZEOzWs6VTxO+qg0qtSWKTkEaTGWGt0C7vBGVrdLdpfZZsXSq6zRNWXHg7A+AiqpHm3a0oMJ3c1xItQBDDTqbWUZV9J5pCgXDWv6Eh+xg7B1Dax3wewi+T9LWJRGkDSJ7kxBLvRTmGcPfLHORCa+K4/cOPUK7utpo0JaVKwBsXmyKk7qaBml28d+AzrXkQc=]]></acast:settings>
+    <acast:network id="ad0f0944-52b3-4651-2205-7982726c5656" slug="frenchspin"><![CDATA[Frenchspin]]></acast:network>
+    <itunes:type>episodic</itunes:type>
+    <itunes:image href="https://static.feedpress.com/logo/rdvtech-612f2a32d5aee.png" />
+    <item>
+      <title>RDV Tech 517 – Reddit dans la tourmente</title>
+      <itunes:title>RDV Tech 517 – Reddit dans la tourmente</itunes:title>
+      <pubDate>Tue, 13 Jun 2023 12:23:20 GMT</pubDate>
+      <itunes:duration>1:11:07</itunes:duration>
+      <enclosure url="https://feedpress.me/link/22958/16188211/media.mp3" length="68322950"
+        type="audio/mpeg" />
+      <guid isPermaLink="false">64885fb86d072900109cbe64</guid>
+      <itunes:explicit>no</itunes:explicit>
+      <link>https://feedpress.me/link/22958/16188210/rdv-tech-517-reddit-dans-la-tourmente</link>
+      <acast:episodeId>64885fb86d072900109cbe64</acast:episodeId>
+      <acast:settings><![CDATA[7ji1Xtyp3ovwQ4N4f9UVWZjdL43FWLppmFTTKpBCUCQBkLrkEuUhVxtLcz5pK/GyysjgScmky98jGh2ZVyJk5gQXTn3hPS3WvPmcSeiS5yIk+iVL0d3u2zNKQEs5MLWTkiDgb3yBDC1cVKIm1J2alvNTVGaUKZQdmn36rGmv/zbqw8x9nyBtgEjdx0Ts8FhOCr0U7FT/ZI7y3rK5Zs55IkPqrG6V45CHvSxErp97yJiF3wYEFFYAX6gU4i+GtejsLKrEC+TF8saOiHkDKJ57sDFX2PgdHG7TIrgl3kgyjqXz/nYrTO+FuxxbULpk81073Kb8lQYDlcAU9WBsaQnGPa0MMzIeeea2iK1/E/eHu+2trw5FCddj8YqMIZ1gOiDXV4JBdiFkAwESzi/tT6NrvCIdLjQmHSEAY4Jz3ajeaYzhjs/+ggpEIAe9VDN+DZTh1j9GVvsuDjud6kYEK+D24hcRejXsHQ7b/9c2/ZB0/dykSihcG1bWZPj5HlsDyZh96dlB7VplYu4PwwItJcaIQcckmxZUTkWxrYth38R8E5iYv6xHS4e64zk+7Uv94HHVhmU77gdv2tg8BoDbwQ+AdI5MKtn99xy4sXXLqBELf9ovakm8jYTlwsfAPhMwdJMOUP+AbDyAVvj7Tku//k1MltnB0wqaz5MysSiZXK+BueU3gXhQwsgLgR5i1ZXSn6PuY0UL7GZ9Fq7TSR7UG5Iy9Kixw9eqEfcUpmHBDGyp5cw7Rs8KVy2pR0ueMtZiMRThGVXeXyRtFWniN2pznPP//g==]]></acast:settings>
+      <itunes:subtitle>Reddit dans la tourmente</itunes:subtitle>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>517</itunes:episode>
+      <itunes:image href="https://assets.pippa.io/shows/6166a46e86d7b1246b20b4ed/show-cover.png" />
+      <description><![CDATA[<p><strong>Au programme :</strong></p><ul><li>Impressions Vision Pro</li><li>Pourquoi la communauté de Reddit se révolte</li><li>Le reste de l’actualité : Netflix, SEC vs Binance, Tesla…</li></ul><p><br></p><p><strong>Liens :</strong></p><ul><li>😎 Soutien sur Patreon :&nbsp;<a href="http://patreon.com/RDVTech" rel="noopener noreferrer" target="_blank">Patreon.com/RDVTech</a></li><li>🤗 Communauté Discord :&nbsp;<a href="https://notpatrick.com/discord/" rel="noopener noreferrer" target="_blank">NotPatrick.com/discord</a></li><li>📰 Veille par Twitter :&nbsp;<a href="https://twitter.com/RdvTech" rel="noopener noreferrer" target="_blank">Twitter.com/RdvTech</a></li><li>📰 Veille par newsletter :&nbsp;<a href="https://notpatrick.com/#newsletter" rel="noopener noreferrer" target="_blank">NotPatrick.com/#newsletter</a></li><li>📺 En live :&nbsp;<a href="https://twitch.tv/notpatrick" rel="noopener noreferrer" target="_blank">Twitch.tv/NotPatrick</a></li><li>📺 En replay :&nbsp;<a href="https://youtube.com/NotPatrickPodcasts" rel="noopener noreferrer" target="_blank">YouTube.com/NotPatrickPodcasts</a></li><li>Commentaires et plus sur&nbsp;<a href="http://frenchspin.fr/" rel="noopener noreferrer" target="_blank">frenchspin.fr</a>&nbsp;(<a href="https://frenchspin.fr/2023/06/rdv-tech-517-reddit-dans-la-tourmente" rel="noopener noreferrer" target="_blank">page de l'épisode</a>).</li></ul><p><br></p><p><strong>Infos :</strong></p><ul><li>Animé par Patrick Beja (<a href="https://www.instagram.com/notpatrick" rel="noopener noreferrer" target="_blank">Instagram</a>, <a href="https://twitter.com/NotPatrick" rel="noopener noreferrer" target="_blank">Twitter</a>, <a href="https://facebook.com/notpatrick" rel="noopener noreferrer" target="_blank">Facebook</a>).</li><li>Co-animé par Cédric Ingrand&nbsp;(<a href="https://twitter.com/cedric" rel="noopener noreferrer" target="_blank">Twitter</a>).</li><li>Co-animé par Nicolas Lellouche (<a href="https://twitter.com/LelloucheNico" rel="noopener noreferrer" target="_blank">Twitter</a>).</li><li><a href="https://www.musicincloud.fr/" rel="noopener noreferrer" target="_blank">Musique libre de droit</a>&nbsp;par Musicincloud.</li></ul><br /><hr><p style='color:grey; font-size:0.75em;'> Hébergé par Acast. Visitez <a style='color:grey;' target='_blank' rel='noopener noreferrer' href='https://acast.com/privacy'>acast.com/privacy</a> pour plus d'informations.</p><img src="https://feedpress.me/link/22958/16188210.gif" height="1" width="1"/>]]></description>
+      <itunes:summary><![CDATA[<p><strong>Au programme :</strong></p><ul><li>Impressions Vision Pro</li><li>Pourquoi la communauté de Reddit se révolte</li><li>Le reste de l’actualité : Netflix, SEC vs Binance, Tesla…</li></ul><p><br></p><p><strong>Liens :</strong></p><ul><li>😎 Soutien sur Patreon :&nbsp;<a href="http://patreon.com/RDVTech" rel="noopener noreferrer" target="_blank">Patreon.com/RDVTech</a></li><li>🤗 Communauté Discord :&nbsp;<a href="https://notpatrick.com/discord/" rel="noopener noreferrer" target="_blank">NotPatrick.com/discord</a></li><li>📰 Veille par Twitter :&nbsp;<a href="https://twitter.com/RdvTech" rel="noopener noreferrer" target="_blank">Twitter.com/RdvTech</a></li><li>📰 Veille par newsletter :&nbsp;<a href="https://notpatrick.com/#newsletter" rel="noopener noreferrer" target="_blank">NotPatrick.com/#newsletter</a></li><li>📺 En live :&nbsp;<a href="https://twitch.tv/notpatrick" rel="noopener noreferrer" target="_blank">Twitch.tv/NotPatrick</a></li><li>📺 En replay :&nbsp;<a href="https://youtube.com/NotPatrickPodcasts" rel="noopener noreferrer" target="_blank">YouTube.com/NotPatrickPodcasts</a></li><li>Commentaires et plus sur&nbsp;<a href="http://frenchspin.fr/" rel="noopener noreferrer" target="_blank">frenchspin.fr</a>&nbsp;(<a href="https://frenchspin.fr/2023/06/rdv-tech-517-reddit-dans-la-tourmente" rel="noopener noreferrer" target="_blank">page de l'épisode</a>).</li></ul><p><br></p><p><strong>Infos :</strong></p><ul><li>Animé par Patrick Beja (<a href="https://www.instagram.com/notpatrick" rel="noopener noreferrer" target="_blank">Instagram</a>, <a href="https://twitter.com/NotPatrick" rel="noopener noreferrer" target="_blank">Twitter</a>, <a href="https://facebook.com/notpatrick" rel="noopener noreferrer" target="_blank">Facebook</a>).</li><li>Co-animé par Cédric Ingrand&nbsp;(<a href="https://twitter.com/cedric" rel="noopener noreferrer" target="_blank">Twitter</a>).</li><li>Co-animé par Nicolas Lellouche (<a href="https://twitter.com/LelloucheNico" rel="noopener noreferrer" target="_blank">Twitter</a>).</li><li><a href="https://www.musicincloud.fr/" rel="noopener noreferrer" target="_blank">Musique libre de droit</a>&nbsp;par Musicincloud.</li></ul><br /><hr><p style='color:grey; font-size:0.75em;'> Hébergé par Acast. Visitez <a style='color:grey;' target='_blank' rel='noopener noreferrer' href='https://acast.com/privacy'>acast.com/privacy</a> pour plus d'informations.</p>]]></itunes:summary>
+      <itunes:author>frenchspin</itunes:author>
+      <itunes:keywords>Patrick Beja, NotPatrick, frenchspin, RDV Tech, rendez-vous Tech, Le
+        rendez-vous Tech, RDV, iPhone, Android, internet, tech, tech news, technologie, GAFAM, GAFA,
+        apple, google, microsoft, amazon, facebook, twitter, tiktok, deep learning, fintech, ai</itunes:keywords>
+      <dc:creator>frenchspin</dc:creator>
+    </item>
+    <item>
+      <title>RDV Tech 516 – Apple vous en met plein les yeux - Vision Pro, WWDC, Meta Quest 3, Razr
+        Plus</title>
+      <itunes:title>RDV Tech 516 – Apple vous en met plein les yeux - Vision Pro, WWDC, Meta Quest
+        3, Razr Plus</itunes:title>
+      <pubDate>Tue, 06 Jun 2023 12:38:48 GMT</pubDate>
+      <itunes:duration>1:16:12</itunes:duration>
+      <enclosure url="https://feedpress.me/link/22958/16164926/media.mp3" length="73207357"
+        type="audio/mpeg" />
+      <guid isPermaLink="false">647f28d912ea910010db9f21</guid>
+      <itunes:explicit>no</itunes:explicit>
+      <link>https://feedpress.me/link/22958/16164925/rdv-tech-516-apple-vous-en-met-plein-les-yeux</link>
+      <acast:episodeId>647f28d912ea910010db9f21</acast:episodeId>
+      <acast:settings><![CDATA[7ji1Xtyp3ovwQ4N4f9UVWZjdL43FWLppmFTTKpBCUCQBkLrkEuUhVxtLcz5pK/GyysjgScmky98jGh2ZVyJk5gQXTn3hPS3WvPmcSeiS5yIk+iVL0d3u2zNKQEs5MLWTkiDgb3yBDC1cVKIm1J2alvNTVGaUKZQdmn36rGmv/zbqw8x9nyBtgEjdx0Ts8FhOCr0U7FT/ZI7y3rK5Zs55IkPqrG6V45CHvSxErp97yJhzjBjaxacLgKvGvminYSwK3GKFGMgwyy2p6ipL94/F79IajhdphMIuBx54CU/xq0UL6YyekFNIqTEwHHC8e7/eLZanUSy5vRNGnljuUJb0Dj9vz3mXeixzcr5wTdjLfxXVkHrwWTYX4W44EN6rdbXqRHOsIWY3ZJJaZR+uCK3gT6z4ARKiHnpg7NMUyintPsKuXKsvhRVM6tv9Y6a6Kb8eh8nkV7p/sBjtl01qB/G52dNFm4HTtWYSbKBqW1cI9gtcSYZozZLncd28liWajMg4gvlneqmRA9yPbF3HZUAkMY2VpgfYbhDb/RM5KUnwNEMe4ksYnT/OL4qgQB1os5aA9YIpdSqxNnWiBKTCiZWLrwOLWAR1JMmzP0S/9UJzAdJaS/Fb6SLr8s1UCNHceMK9nP46y/iXoJ7IGPvMrMNznhOM86k18RQ0Et07EPXV+6pTCE57jRfexdWdpTuzAkKcTyAMQvCA4sVj8Dn1D8CzERt4RIQ0/DJ2nKOAL7Bb1RznATzK+Y/IUmu4zCZu889nT+jlSk/t4qIZfgtPrvD5EA==]]></acast:settings>
+      <itunes:subtitle>Apple vous en met plein les yeux - Vision Pro, WWDC, Meta Quest 3, Razr Plus</itunes:subtitle>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>516</itunes:episode>
+      <itunes:image href="https://assets.pippa.io/shows/6166a46e86d7b1246b20b4ed/show-cover.png" />
+      <description><![CDATA[<p><strong>Au programme :</strong></p><ul><li>Meta Quest 3 </li><li>Apple Vision Pro et annonces WWDC</li><li>Le reste de l’actualité : amendes contre influenceurs, Motorola Razr Plus</li><li>Journal de l’IA</li><li>Journal de Twitter</li></ul><p><br></p><p><strong>Liens :</strong></p><ul><li>😎 Soutien sur Patreon :&nbsp;<a href="http://patreon.com/RDVTech" rel="noopener noreferrer" target="_blank">Patreon.com/RDVTech</a></li><li>🤗 Communauté Discord :&nbsp;<a href="https://notpatrick.com/discord/" rel="noopener noreferrer" target="_blank">NotPatrick.com/discord</a></li><li>📰 Veille par Twitter :&nbsp;<a href="https://twitter.com/RdvTech" rel="noopener noreferrer" target="_blank">Twitter.com/RdvTech</a></li><li>📰 Veille par newsletter :&nbsp;<a href="https://notpatrick.com/#newsletter" rel="noopener noreferrer" target="_blank">NotPatrick.com/#newsletter</a></li><li>📺 En live :&nbsp;<a href="https://twitch.tv/notpatrick" rel="noopener noreferrer" target="_blank">Twitch.tv/NotPatrick</a></li><li>📺 En replay :&nbsp;<a href="https://youtube.com/NotPatrickPodcasts" rel="noopener noreferrer" target="_blank">YouTube.com/NotPatrickPodcasts</a></li><li>Commentaires et plus sur&nbsp;<a href="http://frenchspin.fr/" rel="noopener noreferrer" target="_blank">frenchspin.fr</a>&nbsp;(<a href="https://frenchspin.fr/2023/06/rdv-tech-516-apple-vous-en-met-plein-les-yeux" rel="noopener noreferrer" target="_blank">page de l'épisode</a>).</li></ul><p><br></p><p><strong>Infos :</strong></p><ul><li>Animé par Patrick Beja (<a href="https://www.instagram.com/notpatrick" rel="noopener noreferrer" target="_blank">Instagram</a>, <a href="https://twitter.com/NotPatrick" rel="noopener noreferrer" target="_blank">Twitter</a>, <a href="https://facebook.com/notpatrick" rel="noopener noreferrer" target="_blank">Facebook</a>).</li><li>Co-animé par Cédric de Luca (<a href="https://twitter.com/Cedric2Luca" rel="noopener noreferrer" target="_blank">Twitter</a>).</li><li><a href="https://www.musicincloud.fr/" rel="noopener noreferrer" target="_blank">Musique libre de droit</a>&nbsp;par Musicincloud.</li></ul><br /><hr><p style='color:grey; font-size:0.75em;'> Hébergé par Acast. Visitez <a style='color:grey;' target='_blank' rel='noopener noreferrer' href='https://acast.com/privacy'>acast.com/privacy</a> pour plus d'informations.</p><img src="https://feedpress.me/link/22958/16164925.gif" height="1" width="1"/>]]></description>
+      <itunes:summary><![CDATA[<p><strong>Au programme :</strong></p><ul><li>Meta Quest 3 </li><li>Apple Vision Pro et annonces WWDC</li><li>Le reste de l’actualité : amendes contre influenceurs, Motorola Razr Plus</li><li>Journal de l’IA</li><li>Journal de Twitter</li></ul><p><br></p><p><strong>Liens :</strong></p><ul><li>😎 Soutien sur Patreon :&nbsp;<a href="http://patreon.com/RDVTech" rel="noopener noreferrer" target="_blank">Patreon.com/RDVTech</a></li><li>🤗 Communauté Discord :&nbsp;<a href="https://notpatrick.com/discord/" rel="noopener noreferrer" target="_blank">NotPatrick.com/discord</a></li><li>📰 Veille par Twitter :&nbsp;<a href="https://twitter.com/RdvTech" rel="noopener noreferrer" target="_blank">Twitter.com/RdvTech</a></li><li>📰 Veille par newsletter :&nbsp;<a href="https://notpatrick.com/#newsletter" rel="noopener noreferrer" target="_blank">NotPatrick.com/#newsletter</a></li><li>📺 En live :&nbsp;<a href="https://twitch.tv/notpatrick" rel="noopener noreferrer" target="_blank">Twitch.tv/NotPatrick</a></li><li>📺 En replay :&nbsp;<a href="https://youtube.com/NotPatrickPodcasts" rel="noopener noreferrer" target="_blank">YouTube.com/NotPatrickPodcasts</a></li><li>Commentaires et plus sur&nbsp;<a href="http://frenchspin.fr/" rel="noopener noreferrer" target="_blank">frenchspin.fr</a>&nbsp;(<a href="https://frenchspin.fr/2023/06/rdv-tech-516-apple-vous-en-met-plein-les-yeux" rel="noopener noreferrer" target="_blank">page de l'épisode</a>).</li></ul><p><br></p><p><strong>Infos :</strong></p><ul><li>Animé par Patrick Beja (<a href="https://www.instagram.com/notpatrick" rel="noopener noreferrer" target="_blank">Instagram</a>, <a href="https://twitter.com/NotPatrick" rel="noopener noreferrer" target="_blank">Twitter</a>, <a href="https://facebook.com/notpatrick" rel="noopener noreferrer" target="_blank">Facebook</a>).</li><li>Co-animé par Cédric de Luca (<a href="https://twitter.com/Cedric2Luca" rel="noopener noreferrer" target="_blank">Twitter</a>).</li><li><a href="https://www.musicincloud.fr/" rel="noopener noreferrer" target="_blank">Musique libre de droit</a>&nbsp;par Musicincloud.</li></ul><br /><hr><p style='color:grey; font-size:0.75em;'> Hébergé par Acast. Visitez <a style='color:grey;' target='_blank' rel='noopener noreferrer' href='https://acast.com/privacy'>acast.com/privacy</a> pour plus d'informations.</p>]]></itunes:summary>
+      <itunes:author>frenchspin</itunes:author>
+      <itunes:keywords>Patrick Beja, NotPatrick, frenchspin, RDV Tech, rendez-vous Tech, Le
+        rendez-vous Tech, RDV, iPhone, Android, internet, tech, tech news, technologie, GAFAM, GAFA,
+        apple, google, microsoft, amazon, facebook, twitter, tiktok, deep learning, fintech, ai</itunes:keywords>
+      <dc:creator>frenchspin</dc:creator>
+    </item>
+  </channel>
+</rss>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\RSS;
+namespace Kiwilan\Rss\Tests\Utils;
 
 use DOMDocument;
 use Exception;
@@ -10,23 +10,37 @@ use Exception;
  */
 class XmlReader
 {
+    protected array $content = [];
+
     protected function __construct(
         protected string $xml,
     ) {
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    public static function toArray(string $xml): array
+    public static function make(string $xml): self
     {
         $self = new self($xml);
 
         try {
-            return $self->parse();
+            $self->content = $self->parse();
         } catch (\Throwable $th) {
             throw new Exception('Error while parsing xml string', 1, $th);
         }
+
+        return $self;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function content(): array
+    {
+        return $this->content;
+    }
+
+    public function save(string $path): bool
+    {
+        return file_put_contents($path, $this->content) !== false;
     }
 
     /**

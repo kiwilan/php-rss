@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+	<channel>
+
+		<title>L'apéro du Captain</title>
+		<description>L'apéro du Captain c'est le podcast hebdomadaire le moins recommandable du net à
+			traiter de l'actualité Web et High Tech. Depuis plus de 10 ans, nous produisons des podcasts
+			indépendants et indéfendables pour notre plus grand plaisir. Pour nous soutenir,
+			retrouvez-nous sur Patreon : https://www.patreon.com/aperoducaptain !</description>
+		<link>http://www.captainweb.net</link>
+		<language>fr-fr</language>
+		<copyright>Captainweb.net / Freepod</copyright>
+		<lastBuildDate>Mon, 28 Feb 2022 00:00:01 +0200</lastBuildDate>
+		<pubDate>Fri, 05 Oct 2018 00:01:00 +0200</pubDate>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<webMaster>captain@captainweb.net (Siegfried Thouvenot)</webMaster>
+		<ttl>60</ttl>
+
+		<itunes:author>Captainweb.net</itunes:author>
+		<itunes:subtitle>Le podcast High Tech qui ne respecte rien!</itunes:subtitle>
+		<itunes:summary>L'apéro du Captain c'est le podcast hebdomadaire le moins recommandable du net à
+			traiter de l'actualité Web et High Tech. Depuis plus de 10 ans, nous produisons des podcasts
+			indépendants et indéfendables pour notre plus grand plaisir. Pour nous soutenir,
+			retrouvez-nous sur Patreon : https://www.patreon.com/aperoducaptain !&#13;
+</itunes:summary>
+
+		<itunes:explicit>yes</itunes:explicit>
+		<itunes:image href="http://captainweb.net/logoadc.jpg" />
+
+
+		<itunes:keywords>high,tech,hightech,podcast,french,poney,internet,web,web,actu</itunes:keywords>
+		<itunes:category text="Technology">
+			<itunes:category text="Tech News" />
+		</itunes:category>
+		<itunes:category text="Technology">
+			<itunes:category text="Gadgets" />
+		</itunes:category>
+		<itunes:category text="Technology">
+			<itunes:category text="Podcasting" />
+		</itunes:category>
+		<itunes:category text="Technology" />
+		<itunes:owner>
+			<itunes:email>captain@captainweb.net</itunes:email>
+			<itunes:name>Captainweb.net</itunes:name>
+		</itunes:owner>
+		<item>
+			<title>ADC #374 : Le remake déja vu du point'n clic</title>
+			<link>http://www.captainweb.net</link>
+			<guid>374</guid>
+			<description>Dans ce 374, Géraldine et Vince passent nous parler de remake ciné et de
+				bibliotheques.</description>
+			<enclosure length="250087540" type="audio/mpeg"
+				url="http://podcast.captainweb.net/l-apero-du-captain-374.mp3" />
+			<category>Podcasts</category>
+			<pubDate>Fri, 16 Jun 2023 00:00:01 +0200</pubDate>
+
+			<itunes:author>Captainweb.net</itunes:author>
+			<itunes:explicit>Yes</itunes:explicit>
+			<itunes:subtitle>ADC #374 : Le remake déja vu du point'n clic</itunes:subtitle>
+			<itunes:summary>Dans ce 374, Géraldine et Vince passent nous parler de remake ciné et de
+				bibliotheques.</itunes:summary>
+			<itunes:duration>02:53:36</itunes:duration>
+			<itunes:image href="http://captainweb.net/blog/wp-content/uploads/podcast-img/podcast-374.jpg" />
+			<itunes:keywords>remake, cinéma, bibliotheque</itunes:keywords>
+			<author>captain@captainweb.net (Captainweb.net)</author>
+		</item>
+
+
+		<item>
+			<title>ADC #373 : Embouteillage d'oeuf dans la réserve naturelle du Starship</title>
+			<link>http://www.captainweb.net</link>
+			<guid>373</guid>
+			<description>Dans ce 373, le starship décole bientôt et Chat GPT nous écrit un nouveau
+				générique.</description>
+			<enclosure length="173109513" type="audio/mpeg"
+				url="http://podcast.captainweb.net/l-apero-du-captain-373.mp3" />
+			<category>Podcasts</category>
+			<pubDate>Mon, 22 May 2023 00:00:01 +0200</pubDate>
+
+			<itunes:author>Captainweb.net</itunes:author>
+			<itunes:explicit>Yes</itunes:explicit>
+			<itunes:subtitle>ADC #373 : Embouteillage d'oeuf dans la réserve naturelle du Starship</itunes:subtitle>
+			<itunes:summary>Dans ce 373, le starship décole bientôt et Chat GPT nous écrit un nouveau
+				générique.</itunes:summary>
+			<itunes:duration>02:00:09</itunes:duration>
+			<itunes:image href="http://captainweb.net/blog/wp-content/uploads/podcast-img/podcast-373.jpg" />
+			<itunes:keywords>Starship, des oeufs dans le fiac</itunes:keywords>
+			<author>captain@captainweb.net (Captainweb.net)</author>
+		</item>
+	</channel>
+
+</rss>
