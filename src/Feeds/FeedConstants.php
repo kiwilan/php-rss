@@ -1,10 +1,10 @@
 <?php
 
-namespace Kiwilan\Rss;
+namespace Kiwilan\Rss\Feeds;
 
 class FeedConstants
 {
-    public const FEED = [
+    public const PODCAST_FEED = [
         'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd',
         'xmlns:googleplay' => 'http://www.google.com/schemas/play-podcasts/1.0',
         'xmlns:content' => 'http://purl.org/rss/1.0/modules/content/',

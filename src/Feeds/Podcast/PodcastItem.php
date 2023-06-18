@@ -4,7 +4,7 @@ namespace Kiwilan\Rss\Feeds\Podcast;
 
 use DateTime;
 
-class PodcastChannel
+class PodcastItem
 {
     // `description`: A short description of your episode. This will be used if <itunes:summary> is missing
     // `content:encoded`: The full show notes
@@ -138,5 +138,26 @@ class PodcastChannel
         $this->image = $image;
 
         return $this;
+    }
+
+    public function get(): array
+    {
+        return [
+            'title' => $this->title,
+            'guid' => $this->guid,
+            'itunes:subtitle' => $this->subtitle,
+            'description' => $this->description,
+            'pubDate' => $this->publishDate,
+            'enclosure' => $this->enclosure,
+            'link' => $this->link,
+            'itunes:author' => $this->author,
+            'itunes:keywords' => $this->keywords,
+            'itunes:duration' => $this->duration,
+            'itunes:episodeType' => $this->episodeType,
+            'itunes:season' => $this->season,
+            'itunes:episode' => $this->episode,
+            'itunes:explicit' => $this->isExplicit,
+            'itunes:image' => $this->image,
+        ];
     }
 }

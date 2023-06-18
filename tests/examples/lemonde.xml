@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Le Monde.fr - Actualités et Infos en France et dans le monde</title>
+    <description>Le Monde.fr - 1er site d’information. Les articles du journal et toute l’actualité
+      en continu : International, France, Société, Economie, Culture, Environnement, Blogs ...</description>
+    <copyright>Le Monde - L’utilisation des flux RSS du Monde.fr est réservée à un usage strictement
+      personnel, non professionnel et non collectif. Toute autre exploitation doit faire l’objet
+      d’une autorisation et donner lieu au versement d’une rémunération. Contact :
+      syndication@lemonde.fr</copyright>
+    <link>https://www.lemonde.fr/rss/une.xml</link>
+    <pubDate>Sun, 18 Jun 2023 15:59:59 +0000</pubDate>
+    <language>fr</language>
+    <atom:link href="https://www.lemonde.fr/rss/une.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[Le Rhône, un fleuve-usine soumis à des choix cruciaux face au réchauffement climatique]]></title>
+      <pubDate>Sun, 18 Jun 2023 14:32:47 +0200</pubDate>
+      <description><![CDATA[De sa source, dans les glaciers suisses, jusqu’à son delta, en Provence, le fleuve français au plus gros débit a été dompté. Hérissé de barrages, pompé pour l’agriculture, utilisé comme autoroute à barges, il sert les desseins de l’économie. Il n’est pas pour autant à l’abri des conséquences du changement climatique. Partout, il doit s’adapter. Et, à son embouchure, la montée de la mer perturbe les équilibres.]]></description>
+      <guid isPermaLink="true">
+        https://www.lemonde.fr/planete/visuel/2023/06/18/le-rhone-un-fleuve-usine-soumis-a-des-choix-cruciaux_6178165_3244.html</guid>
+      <link>
+        https://www.lemonde.fr/planete/visuel/2023/06/18/le-rhone-un-fleuve-usine-soumis-a-des-choix-cruciaux_6178165_3244.html</link>
+      <media:content width="644" height="322"
+        url="https://img.lemde.fr/2023/06/08/1894/0/3598/1799/644/322/60/0/e3bff11_1686216183572-1-mbenguigui-dscf0268.jpg">
+        <media:credit scheme="urn:ebu">MATHIAS BENGUIGUI POUR « LE MONDE »</media:credit>
+      </media:content>
+    </item>
+    <item>
+      <title><![CDATA[Enquête vidéo : les documents qui révèlent la face cachée de Wagner en Centrafrique]]></title>
+      <pubDate>Sun, 18 Jun 2023 14:00:02 +0200</pubDate>
+      <description><![CDATA[« Le Monde » s’est procuré des rapports d’activité du Groupe Wagner en République centrafricaine. Rédigés par les mercenaires eux-mêmes entre 2017 et 2021, ils montrent comment les « instructeurs russes » ont violé l’embargo dans le pays tout en pillant et parfois torturant la population locale.]]></description>
+      <guid isPermaLink="true">
+        https://www.lemonde.fr/international/video/2023/06/18/enquete-video-les-documents-qui-revelent-la-face-cachee-de-wagner-en-centrafrique_6178160_3210.html</guid>
+      <link>
+        https://www.lemonde.fr/international/video/2023/06/18/enquete-video-les-documents-qui-revelent-la-face-cachee-de-wagner-en-centrafrique_6178160_3210.html</link>
+      <media:content width="644" height="322"
+        url="https://img.lemde.fr/2023/06/15/33/0/1920/960/644/322/60/0/29ff575_1686833512448-appel-centraf.jpg" />
+    </item>
+  </channel>
+</rss>

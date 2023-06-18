@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?xml-stylesheet type="text/xsl" href="https://p1pdd.com/wp-content/plugins/seriously-simple-podcasting/templates/feed-stylesheet.xsl"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+	xmlns:podcast="https://podcastindex.org/namespace/1.0"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/" version="2.0">
+	<channel>
+		<title>Pour une Poignée de Dés - Actual Play / Live play / Let's play JDR - P1PDD</title>
+		<atom:link href="https://p1pdd.com/feed/podcast/p1pdd" rel="self" type="application/rss+xml" />
+		<link>https://p1pdd.com/series/p1pdd/</link>
+		<description>Plus le temps de jouer au jeu de rôle ou simplement envie d'écouter une saga audio
+			à la conception originale ? Ce podcast est fait pour vous !
+
+			P1PDD est un podcast d'actual play / live play / actual play JDR (enregistrement audio de
+			parties de jeu de rôle) qui portent une attention particulière à ses scénarios, à la qualité
+			du son et au montage. Notre ambition est d'utiliser le jeu de rôle comme un nouveau moyen de
+			création d'une saga audio.
+
+			Le premier cycle narratif est composé de deux saisons réalisées et jouées par des podcasteurs
+			(Bazingcast, KulturBreakdown...).</description>
+		<lastBuildDate>Sun, 1 Jan 2023 20:00:00 +0000</lastBuildDate>
+		<language>fr-FR</language>
+		<copyright>© 2023 Pour une Poignée de Dés</copyright>
+		<itunes:subtitle>Saga audio à partir d'enregistrements de parties de jeu de rôle</itunes:subtitle>
+		<itunes:author>Piouf</itunes:author>
+		<itunes:summary />
+		<itunes:owner>
+			<itunes:name>Piouf</itunes:name>
+			<itunes:email>contact@p1pdd.com</itunes:email>
+		</itunes:owner>
+		<itunes:explicit>clean</itunes:explicit>
+		<itunes:image href="https://p1pdd.com/wp-content/uploads/2019/01/Logo2.png" />
+		<image>
+			<url>https://p1pdd.com/wp-content/uploads/2019/01/Logo2.png</url>
+			<title>Pour une Poignée de Dés - Actual Play / Live play / Let's play JDR - P1PDD</title>
+			<link>https://p1pdd.com/</link>
+		</image>
+		<itunes:category text="Fiction">
+			<itunes:category text="Science Fiction" />
+		</itunes:category>
+		<itunes:category text="Technology">
+		</itunes:category>
+		<itunes:category text="Arts">
+		</itunes:category>
+		<podcast:locked owner="contact@p1pdd.com">yes</podcast:locked>
+		<podcast:guid>dd276e87-0426-514a-9027-e942a4f57ffb</podcast:guid>
+		<generator>https://wordpress.org/?v=5.8.2</generator>
+
+
+		<item>
+			<title>HS03 – Yuigahama Bad Seeds</title>
+			<link />
+			<pubDate>Sun, 1 Jan 2023 20:00:00 +0000</pubDate>
+			<dc:creator><![CDATA[Piouf]]></dc:creator>
+			<guid isPermaLink="false" />
+			<description><![CDATA[On se retrouve pour un court épisode afin de vous faire découvrir Yuigahama Bad Seeds, le jeu de rôle créé par Fred que vous connaissez déjà comme l'illustrateur des deux premières saisons de P1PDD ! N'hésitez pas à soutenir le projet qui est actuellement en financement participatif : <a href="https://www.letogames.com/yuigahama">https://www.letogames.com/yuigahama</a>]]></description>
+			<itunes:subtitle>Un court épisode afin de vous faire découvrir Yuigahama Bad Seeds</itunes:subtitle>
+			<itunes:episodeType>full</itunes:episodeType>
+			<content:encoded><![CDATA[On se retrouve pour un court épisode afin de vous faire découvrir Yuigahama Bad Seeds, le jeu de rôle créé par Fred que vous connaissez déjà comme l'illustrateur des deux premières saisons de P1PDD ! N'hésitez pas à soutenir le projet qui est actuellement en financement participatif : <a href="https://www.letogames.com/yuigahama">https://www.letogames.com/yuigahama</a>]]></content:encoded>
+			<enclosure length="138372357" type="audio/mpeg"
+				url="http://media.blubrry.com/p1pdd/www.p1pdd.com/podcast/p1pdd-hs03-ybs.mp3" />
+			<itunes:summary><![CDATA[On se retrouve pour un court épisode afin de vous faire découvrir Yuigahama Bad Seeds, le jeu de rôle créé par Fred que vous connaissez déjà comme l'illustrateur des deux premières saisons de P1PDD ! N'hésitez pas à soutenir le projet qui est actuellement en financement participatif : <a href="https://www.letogames.com/yuigahama">https://www.letogames.com/yuigahama</a>]]></itunes:summary>
+			<itunes:image href="https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png" />
+			<image>
+				<url>https://p1pdd.com/wp-content/uploads/2023/01/p1pdd-hs03-ybs.png</url>
+				<title>HS03 – Yuigahama Bad Seeds</title>
+			</image>
+			<itunes:explicit>clean</itunes:explicit>
+			<itunes:block>no</itunes:block>
+			<itunes:duration>02:12:17</itunes:duration>
+			<itunes:author><![CDATA[Piouf]]></itunes:author>
+			<googleplay:description><![CDATA[On se retrouve pour un court épisode afin de vous faire découvrir Yuigahama Bad Seeds, le jeu de rôle créé par Fred que vous connaissez déjà comme l'illustrateur des deux premières saisons de P1PDD ! N'hésitez pas à soutenir le projet qui est actuellement en financement participatif : <a href="https://www.letogames.com/yuigahama">https://www.letogames.com/yuigahama</a>]]></googleplay:description>
+			<googleplay:image
+				href="https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png" />
+			<googleplay:explicit>No</googleplay:explicit>
+			<googleplay:block>no</googleplay:block>
+		</item>
+		<item>
+			<title>S02E14 – La Croisière s’amuse – Podcast JDR</title>
+			<link>https://p1pdd.com/podcast/s02e14-la-croisiere-samuse-podcast-jdr/</link>
+			<pubDate>Thu, 21 Feb 2019 04:00:59 +0000</pubDate>
+			<dc:creator><![CDATA[Piouf]]></dc:creator>
+			<guid isPermaLink="false">http://p1pdd.com/?post_type=podcast&amp;p=691</guid>
+			<description><![CDATA[<a href="https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png"></a>Voici le quatorzième épisode de notre podcast JDR. Enfin le grand final de cette deuxième saison et surtout celui de ce premier cycle narratif.
+
+Si vous prenez ce podcast en route, ne lancez pas cet épisode et <a href="http://p1pdd.com/podcast/s01e00-podcast-jdr/">rendez-vous à l'épisode 0</a> de la première saison sans quoi vous vous spoilerez à jamais ce cycle narratif composé des deux premières saisons de notre podcast.
+Résumé de l'épisode précédent
+A l’épisode précédent nos joueurs ont découvert la triste vérité au sujet de leur venue dans ce coin oublié du monde. Un endroit oublié pour de bonnes raisons et dans lequel se retrouvent nez à nez Saatet Ta, une abomination multi millénaire, l'expédition vampirique américaine, les derniers survivants de l'ordre et bien sur nos joueurs. L'affrontement est féroce mais nos personnages gèrent tant bien que mal la situation face à leurs ennemies humains et vampires. Cependant Saatet Ta approche et elle ne va certainement pas laisser passer cette opportunité qu'elle attend depuis si longtemps...
+Musiques
+<ul>
+ 	<li>Intro : Bande originale de la série Utopia</li>
+ 	<li>Ambiance :BO du film Tron (Armory), BO du film The Fountain (Finish It), BO de la série Le Bureau des Légendes (Research 7.3, Research 24.3), Prequel - Part 1.1, BO du film Avengers (Assemble, Helicarrier, Stark goes Green, A promise)</li>
+ 	<li>Fin : Spring 1 - Vivaldi, The Four Seasons recomposed by Max Richter</li>
+</ul>
+La fin d'un cycle !
+Après cet épisode de notre podcast JDR nous quittons définitivement Alyssandre, Tamara, Salazar, Lucien et Nathanael Ward ainsi que les joueurs qui les ont parfaitement interprétés : Xeutrope, Swann, Griffooo et Ateraki. Un immense merci à eux pour leur participation à ces deux saisons. Ils ont apporté une immense fraicheur à ce podcast et ont été des soutiens permanents dans sa conception. Un grand merci aussi à Xil et Alex pour leurs retours, à Mac Bess pour ses illustrations que vous pouvez déjà entrevoir <a href="https://p1pdd.com/2018/11/illustration-de-la-saison-1-et-nouveau-lancement-sur-youtube/">ici</a> et <a href="https://p1pdd.com/2019/01/notre-premier-cycle-jdr-est-maintenant-entierement-illustre/">là</a>, et bien sûr merci à vous tous chers auditeurs. Ce podcast a un succès bien plus important qu'anticipé et nous allons faire le maximum pour être à la hauteur de vos attentes.
+
+A propos de la suite de ce podcast JDR justement, comme annoncé précédemment nous allons initier un nouveau cycle narratif dans un tout autre univers avec la saison 3 intitulée "Le portail des astres". Cette nouvelle saison a déjà été intégralement enregistrée et devrait comporter entre 15 et 20 épisodes. Krilin me remplace en tant que MJ et de nouveaux joueurs se joindrons à moi pour composer un nouveau groupe dont vous pourrez bientôt suivre les aventures.
+
+On se retrouve donc dans quelques mois pour la publication du premier épisode de cette troisième saison, d'ici là guettez le blog car d'autres actualités y seront annoncées à propos de P1PDD, votre podcast JDR préféré !
+Abonnez-vous !
+Quoi ? Vous n'êtes pas encore abonné ? Notre podcast JDR est disponible sur la plupart des plateformes et services, retrouvez en la liste non exhaustive par ici : <a href="http://p1pdd.com/sabonner-podcast-jdr/" target="_blank" rel="noopener noreferrer">S'abonnez à ce Podcast JDR</a>.
+
+&nbsp;]]></description>
+			<itunes:subtitle><![CDATA[Voici le quatorzième épisode de notre podcast JDR. Enfin le grand final de cette deuxième saison et surtout celui de ce premier cycle narratif.
+
+Si vous prenez ce podcast en route, ne lancez pas cet épisode et rendez-vous à lépisode 0 de la première sa]]></itunes:subtitle>
+			<itunes:episodeType>full</itunes:episodeType>
+			<content:encoded><![CDATA[<a href="https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png"></a>Voici le quatorzième épisode de notre podcast JDR. Enfin le grand final de cette deuxième saison et surtout celui de ce premier cycle narratif.
+
+Si vous prenez ce podcast en route, ne lancez pas cet épisode et <a href="http://p1pdd.com/podcast/s01e00-podcast-jdr/">rendez-vous à l'épisode 0</a> de la première saison sans quoi vous vous spoilerez à jamais ce cycle narratif composé des deux premières saisons de notre podcast.
+Résumé de l'épisode précédent
+A l’épisode précédent nos joueurs ont découvert la triste vérité au sujet de leur venue dans ce coin oublié du monde. Un endroit oublié pour de bonnes raisons et dans lequel se retrouvent nez à nez Saatet Ta, une abomination multi millénaire, l'expédition vampirique américaine, les derniers survivants de l'ordre et bien sur nos joueurs. L'affrontement est féroce mais nos personnages gèrent tant bien que mal la situation face à leurs ennemies humains et vampires. Cependant Saatet Ta approche et elle ne va certainement pas laisser passer cette opportunité qu'elle attend depuis si longtemps...
+Musiques
+<ul>
+ 	<li>Intro : Bande originale de la série Utopia</li>
+ 	<li>Ambiance :BO du film Tron (Armory), BO du film The Fountain (Finish It), BO de la série Le Bureau des Légendes (Research 7.3, Research 24.3), Prequel - Part 1.1, BO du film Avengers (Assemble, Helicarrier, Stark goes Green, A promise)</li>
+ 	<li>Fin : Spring 1 - Vivaldi, The Four Seasons recomposed by Max Richter</li>
+</ul>
+La fin d'un cycle !
+Après cet épisode de notre podcast JDR nous quittons définitivement Alyssandre, Tamara, Salazar, Lucien et Nathanael Ward ainsi que les joueurs qui les ont parfaitement interprétés : Xeutrope, Swann, Griffooo et Ateraki. Un immense merci à eux pour leur participation à ces deux saisons. Ils ont apporté une immense fraicheur à ce podcast et ont été des soutiens permanents dans sa conception. Un grand merci aussi à Xil et Alex pour leurs retours, à Mac Bess pour ses illustrations que vous pouvez déjà entrevoir <a href="https://p1pdd.com/2018/11/illustration-de-la-saison-1-et-nouveau-lancement-sur-youtube/">ici</a> et <a href="https://p1pdd.com/2019/01/notre-premier-cycle-jdr-est-maintenant-entierement-illustre/">là</a>, et bien sûr merci à vous tous chers auditeurs. Ce podcast a un succès bien plus important qu'anticipé et nous allons faire le maximum pour être à la hauteur de vos attentes.
+
+A propos de la suite de ce podcast JDR justement, comme annoncé précédemment nous allons initier un nouveau cycle narratif dans un tout autre univers avec la saison 3 intitulée "Le portail des astres". Cette nouvelle saison a déjà été intégralement enregistrée et devrait comporter entre 15 et 20 épisodes. Krilin me remplace en tant que MJ et de nouveaux joueurs se joindrons à moi pour composer un nouveau groupe dont vous pourrez bientôt suivre les aventures.
+
+On se retrouve donc dans quelques mois pour la publication du premier épisode de cette troisième saison, d'ici là guettez le blog car d'autres actualités y seront annoncées à propos de P1PDD, votre podcast JDR préféré !
+Abonnez-vous !
+Quoi ? Vous n'êtes pas encore abonné ? Notre podcast JDR est disponible sur la plupart des plateformes et services, retrouvez en la liste non exhaustive par ici : <a href="http://p1pdd.com/sabonner-podcast-jdr/" target="_blank" rel="noopener noreferrer">S'abonnez à ce Podcast JDR</a>.
+
+&nbsp;]]></content:encoded>
+			<enclosure length="81715536" type="audio/mpeg"
+				url="https://p1pdd.com/podcast-download/691/s02e14-la-croisiere-samuse-podcast-jdr.mp3" />
+			<itunes:summary><![CDATA[Voici le quatorzième épisode de notre podcast JDR. Enfin le grand final de cette deuxième saison et surtout celui de ce premier cycle narratif.
+
+Si vous prenez ce podcast en route, ne lancez pas cet épisode et rendez-vous à l'épisode 0 de la première saison sans quoi vous vous spoilerez à jamais ce cycle narratif composé des deux premières saisons de notre podcast.
+Résumé de l'épisode précédent
+A l’épisode précédent nos joueurs ont découvert la triste vérité au sujet de leur venue dans ce coin oublié du monde. Un endroit oublié pour de bonnes raisons et dans lequel se retrouvent nez à nez Saatet Ta, une abomination multi millénaire, l'expédition vampirique américaine, les derniers survivants de l'ordre et bien sur nos joueurs. L'affrontement est féroce mais nos personnages gèrent tant bien que mal la situation face à leurs ennemies humains et vampires. Cependant Saatet Ta approche et elle ne va certainement pas laisser passer cette opportunité qu'elle attend depuis si longtemps...
+Musiques
+
+ 	Intro : Bande originale de la série Utopia
+ 	Ambiance :BO du film Tron (Armory), BO du film The Fountain (Finish It), BO de la série Le Bureau des Légendes (Research 7.3, Research 24.3), Prequel - Part 1.1, BO du film Avengers (Assemble, Helicarrier, Stark goes Green, A promise)
+ 	Fin : Spring 1 - Vivaldi, The Four Seasons recomposed by Max Richter
+
+La fin d'un cycle !
+Après cet épisode de notre podcast JDR nous quittons définitivement Alyssandre, Tamara, Salazar, Lucien et Nathanael Ward ainsi que les joueurs qui les ont parfaitement interprétés : Xeutrope, Swann, Griffooo et Ateraki. Un immense merci à eux pour leur participation à ces deux saisons. Ils ont apporté une immense fraicheur à ce podcast et ont été des soutiens permanents dans sa conception. Un grand merci aussi à Xil et Alex pour leurs retours, à Mac Bess pour ses illustrations que vous pouvez déjà entrevoir ici et là, et bien sûr merci à vous tous chers auditeurs. Ce podcast a un succès bien plus important qu'anticipé et nous allons faire le maximum pour être à la hauteur de vos attentes.
+
+A propos de la suite de ce podcast JDR justement, comme annoncé précédemment nous allons initier un nouveau cycle narratif dans un tout autre univers avec la saison 3 intitulée "Le portail des astres". Cette nouvelle saison a déjà été intégralement enregistrée et devrait comporter entre 15 et 20 épisodes. Krilin me remplace en tant que MJ et de nouveaux joueurs se joindrons à moi pour composer un nouveau groupe dont vous pourrez bientôt suivre les aventures.
+
+On se retrouve donc dans quelques mois pour la publication du premier épisode de cette troisième saison, d'ici là guettez le blog car d'autres actualités y seront annoncées à propos de P1PDD, votre podcast JDR préféré !
+Abonnez-vous !
+Quoi ? Vous n'êtes pas encore abonné ? Notre podcast JDR est disponible sur la plupart des plateformes et services, retrouvez en la liste non exhaustive par ici : S'abonnez à ce Podcast JDR.
+
+&nbsp;]]></itunes:summary>
+			<itunes:image href="https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png" />
+			<image>
+				<url>https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png</url>
+				<title>S02E14 – La Croisière s’amuse – Podcast JDR</title>
+			</image>
+			<itunes:explicit>clean</itunes:explicit>
+			<itunes:block>no</itunes:block>
+			<itunes:duration>56:45</itunes:duration>
+			<itunes:author><![CDATA[Piouf]]></itunes:author>
+			<googleplay:description><![CDATA[Voici le quatorzième épisode de notre podcast JDR. Enfin le grand final de cette deuxième saison et surtout celui de ce premier cycle narratif.
+
+Si vous prenez ce podcast en route, ne lancez pas cet épisode et rendez-vous à l'épisode 0 de la première saison sans quoi vous vous spoilerez à jamais ce cycle narratif composé des deux premières saisons de notre podcast.
+Résumé de l'épisode précédent
+A l’épisode précédent nos joueurs ont découvert la triste vérité au sujet de leur venue dans ce coin oublié du monde. Un endroit oublié pour de bonnes raisons et dans lequel se retrouvent nez à nez Saatet Ta, une abomination multi millénaire, l'expédition vampirique américaine, les derniers survivants de l'ordre et bien sur nos joueurs. L'affrontement est féroce mais nos personnages gèrent tant bien que mal la situation face à leurs ennemies humains et vampires. Cependant Saatet Ta approche et elle ne va certainement pas laisser passer cette opportunité qu'elle attend depuis si longtemps...]]></googleplay:description>
+			<googleplay:image
+				href="https://p1pdd.com/wp-content/uploads/2019/02/icône-Episode-S02E14.png" />
+			<googleplay:explicit>No</googleplay:explicit>
+			<googleplay:block>no</googleplay:block>
+		</item>
+	</channel>
+</rss>

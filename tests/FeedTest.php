@@ -1,10 +1,11 @@
 <?php
 
 use Kiwilan\Rss\Feed;
+use Kiwilan\Rss\Feeds\FeedChannel;
 
 it('can make rss feed', function () {
-    $feed = Feed::make();
-    $feed->save(OUTPUT);
+    $feed = Feed::make()->raw();
+    $feed->save(OUTPUT.'/feed.xml');
 
-    expect($feed)->toBeInstanceOf(Feed::class);
+    expect($feed)->toBeInstanceOf(FeedChannel::class);
 });

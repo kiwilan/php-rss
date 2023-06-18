@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\Rss;
+namespace Kiwilan\Rss\Feeds;
 
 class FeedItem
 {
