@@ -22,8 +22,6 @@ class FeedChannel
      */
     public function get(): string
     {
-        ray($this->feed->items());
-
         return ArrayToXml::convert(
             array: [
                 '_attributes' => $this->feed->attributes(),
