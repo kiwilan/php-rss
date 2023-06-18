@@ -5,6 +5,8 @@ use Kiwilan\Rss\Feeds\Podcast\PodcastEnclosure;
 use Kiwilan\Rss\Feeds\Podcast\PodcastItem;
 
 define('OUTPUT', __DIR__.'/output');
+define('EXAMPLES', __DIR__.'/examples');
+
 define('ITEMS', [
     new PodcastItem(
         title: "Peau d'Ane",

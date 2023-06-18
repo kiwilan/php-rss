@@ -13,6 +13,10 @@
 
 PHP package to generate RSS feeds with presets.
 
+|  Type   | Supported |          With          |
+| :-----: | :-------: | :--------------------: |
+| Podcast |    ✅     | `itunes`, `googleplay` |
+
 ## Installation
 
 You can install the package via composer:

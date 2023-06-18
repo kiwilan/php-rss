@@ -21,7 +21,7 @@ it('can make podcast feed', function () {
     $podcast->keywords(['films', 'critiques', 'comédie']);
     $podcast->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com');
     $podcast->explicit(ItunesExplicit::yes);
-    // $podcast->isPrivate(false);
+    $podcast->isPrivate();
     $podcast->type(ItunesTypeEnum::episodic);
     $podcast->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews);
     $podcast->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
@@ -31,10 +31,34 @@ it('can make podcast feed', function () {
     }
 
     $podcast->get();
-    $podcast->save(OUTPUT.'/feed-podcast.xml');
 
-    ray($podcast);
+    $path = OUTPUT.'/feed-podcast.xml';
+    $podcast->save($path);
 
-    $reader = XmlReader::make(OUTPUT.'/feed-podcast.xml');
-    ray($reader);
+    $xml = file_get_contents($path);
+    $reader = XmlReader::make($xml);
+    $content = $reader->content();
+
+    $channel = $content['channel'];
+
+    expect($content['@root'])->toBe('rss');
+    expect($channel['title'])->toBe('2 Heures De Perdues');
+    expect($channel['link'])->toBe('https://www.2hdp.fr');
+    expect($channel['description'])->toBe('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
+    expect($channel['language'])->toBe('fr');
+    expect($channel['lastBuildDate'])->toBe('Wed, 01 Sep 2021 00:00:00 +0000');
+    expect($channel['webMaster'])->toBe('feeds@ausha.co (Ausha)');
+    expect($channel['generator'])->toBe('Ausha (https://www.ausha.co)');
+    expect($channel['itunes:keywords'])->toBe('films,critiques,comédie');
+    expect($channel['itunes:author'])->toBe('2 Heures De Perdues');
+    expect($channel['itunes:owner']['itunes:name'])->toBe('2 Heures De Perdues');
+    expect($channel['itunes:owner']['itunes:email'])->toBe('2heuresdeperdues@gmail.com');
+    expect($channel['itunes:explicit'])->toBe('yes');
+    expect($channel['itunes:block'])->toBe('Yes');
+    expect($channel['itunes:type'])->toBe('episodic');
+    expect($channel['itunes:category']['@attributes']['text'])->toBe('TV &amp; Film');
+    expect($channel['itunes:category']['itunes:category']['@attributes']['text'])->toBe('Film Reviews');
+    expect($channel['itunes:image']['@attributes']['href'])->toBe('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
+    expect($channel['item'])->toBeArray();
+    expect($channel['item'])->toHaveCount(2);
 });
