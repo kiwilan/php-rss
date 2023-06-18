@@ -2,7 +2,6 @@
 
 namespace Kiwilan\Rss\Enums;
 
-// @docs: https://podcasters.apple.com/support/1691-apple-podcasts-categories
 enum ItunesCategoryEnum: string
 {
     case arts = 'Arts';

@@ -19,13 +19,16 @@ it('can make podcast feed', function () {
     $podcast->webmaster('feeds@ausha.co (Ausha)');
     $podcast->generator('Ausha (https://www.ausha.co)');
     $podcast->keywords(['films', 'critiques', 'comédie']);
-    $podcast->authorName('2 Heures De Perdues');
-    $podcast->authorEmail('2heuresdeperdues@gmail.com');
+    $podcast->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com');
     $podcast->explicit(ItunesExplicit::yes);
-    $podcast->isPrivate(false);
+    // $podcast->isPrivate(false);
     $podcast->type(ItunesTypeEnum::episodic);
     $podcast->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews);
     $podcast->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
+
+    foreach (ITEMS as $item) {
+        $podcast->addItem($item);
+    }
 
     $podcast->get();
     $podcast->save(OUTPUT.'/feed-podcast.xml');

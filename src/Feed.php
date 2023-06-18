@@ -8,6 +8,11 @@ use Kiwilan\Rss\Feeds\Podcast\PodcastChannel;
 
 class Feed
 {
+    /**
+     * @param  array<string,string>  $attributes
+     * @param  array<string,string>  $channel
+     * @param  array<string,string>  $items
+     */
     protected function __construct(
         protected string $root = '',
         protected string $version = '1.0',
@@ -15,6 +20,7 @@ class Feed
         protected ?bool $standalone = null,
         protected array $attributes = [],
         protected array $channel = [],
+        protected array $items = [],
     ) {
     }
 
@@ -90,11 +96,25 @@ class Feed
         return $this->channel;
     }
 
+    public function items(): array
+    {
+        return $this->items;
+    }
+
     public function setChannel(array $channel): self
     {
         $this->channel = [
             ...$this->channel,
             ...$channel,
+        ];
+
+        return $this;
+    }
+
+    public function setItem(array $item): self
+    {
+        $this->items[] = [
+            ...$item,
         ];
 
         return $this;

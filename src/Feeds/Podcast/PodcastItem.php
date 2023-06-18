@@ -3,30 +3,31 @@
 namespace Kiwilan\Rss\Feeds\Podcast;
 
 use DateTime;
+use Exception;
+use Kiwilan\Rss\Enums\ItunesEpisodeTypeEnum;
 
 class PodcastItem
 {
-    // `description`: A short description of your episode. This will be used if <itunes:summary> is missing
-    // `content:encoded`: The full show notes
-    // `itunes:keywords`: Deprecated by Apple, but some platforms actually still use this
-    // `itunes:subtitle`: Displays only in iTunes in episode listings
-    // `itunes:summary`: One- or two-sentence summary of the episode, displays when pressing (i) button in iTunes, displays in iOS 11 along with title and show notes
-    protected function __construct(
+    /**
+     * @param  string[]|null  $keywords
+     */
+    public function __construct(
         protected ?string $title = null, // `title`
         protected ?string $guid = null, // `guid`
         protected ?string $subtitle = null, // `itunes:subtitle`
         protected ?string $description = null, // `description`, `content:encoded`
         protected ?DateTime $publishDate = null, // `pubDate`
-        protected ?string $enclosure = null, // `enclosure`
+        protected ?PodcastEnclosure $enclosure = null, // `enclosure`
         protected ?string $link = null, // `link`
         protected ?string $author = null, // `itunes:author`, `googleplay:author`
-        protected ?string $keywords = null, // `itunes:keywords`
+        protected ?array $keywords = null, // `itunes:keywords`
         protected ?int $duration = null, // `itunes:duration`
-        protected ?string $episodeType = null, // `itunes:episodeType` (Episode type: “full,” “trailer,” or “bonus”)
+        protected ItunesEpisodeTypeEnum $episodeType = ItunesEpisodeTypeEnum::full, // `itunes:episodeType`
         protected ?int $season = null, // `itunes:season`
         protected ?int $episode = null, // `itunes:episode`
         protected bool $isExplicit = false, // `itunes:explicit`, `googleplay:explicit`
         protected ?string $image = null, // `itunes:image`, `googleplay:image`
+        protected array $item = [],
     ) {
     }
 
@@ -35,93 +36,193 @@ class PodcastItem
         return new self();
     }
 
-    public function title(string $title): self
+    public function title(?string $title): self
     {
+        if (! $title) {
+            return $this;
+        }
+
         $this->title = $title;
+        $this->item['title'] = $title;
 
         return $this;
     }
 
-    public function guid(string $guid): self
+    /**
+     * Unique identifier for the episode, optional, can be auto-generated.
+     */
+    public function guid(?string $guid): self
     {
+        if (! $guid) {
+            return $this;
+        }
+
         $this->guid = $guid;
 
         return $this;
     }
 
-    public function subtitle(string $subtitle): self
+    public function subtitle(?string $subtitle): self
     {
+        if (! $subtitle) {
+            return $this;
+        }
+
+        $useHTML = $this->useHTML($subtitle);
+
         $this->subtitle = $subtitle;
 
+        if ($useHTML) {
+            $this->item['itunes:subtitle'] = [
+                '_cdata' => $subtitle,
+            ];
+        } else {
+            $this->item['itunes:subtitle'] = $subtitle;
+        }
+
         return $this;
     }
 
-    public function description(string $description): self
+    public function description(?string $description): self
     {
+        if (! $description) {
+            return $this;
+        }
+
+        $useHTML = $this->useHTML($description);
+
         $this->description = $description;
 
+        if ($useHTML) {
+            $this->item['description'] = [
+                '_cdata' => $description,
+            ];
+            $this->item['content:encoded'] = [
+                '_cdata' => $description,
+            ];
+        } else {
+            $this->item['description'] = $description;
+            $this->item['content:encoded'] = $description;
+        }
+
         return $this;
     }
 
-    public function publishDate(DateTime $publishDate): self
+    public function publishDate(DateTime|string|null $publishDate): self
     {
+        if (! $publishDate) {
+            return $this;
+        }
+
+        if (is_string($publishDate)) {
+            $publishDate = new DateTime($publishDate);
+        }
+
         $this->publishDate = $publishDate;
+        $this->item['pubDate'] = $publishDate->format(DateTime::RSS);
 
         return $this;
     }
 
-    public function enclosure(string $enclosure): self
+    public function enclosure(?PodcastEnclosure $enclosure): self
     {
+        if (! $enclosure) {
+            return $this;
+        }
+
         $this->enclosure = $enclosure;
+        $this->item['enclosure'] = $enclosure->get();
 
         return $this;
     }
 
-    public function link(string $link): self
+    public function link(?string $link): self
     {
+        if (! $link) {
+            return $this;
+        }
+
         $this->link = $link;
+        $this->item['link'] = $link;
 
         return $this;
     }
 
-    public function author(string $author): self
+    public function author(?string $author): self
     {
+        if (! $author) {
+            return $this;
+        }
+
         $this->author = $author;
+        $this->item['itunes:author'] = $author;
+        $this->item['googleplay:author'] = $author;
 
         return $this;
     }
 
-    public function keywords(string $keywords): self
+    /**
+     * @param  string[]|null  $keywords
+     */
+    public function keywords(?array $keywords): self
     {
+        if (! $keywords) {
+            return $this;
+        }
+
         $this->keywords = $keywords;
+        $this->item['itunes:keywords'] = implode(',', $keywords);
 
         return $this;
     }
 
-    public function duration(string $duration): self
+    public function duration(?int $duration): self
     {
+        if (! $duration) {
+            return $this;
+        }
+
         $this->duration = $duration;
+        $this->item['itunes:duration'] = $this->convertDuration();
 
         return $this;
     }
 
-    public function episodeType(string $episodeType): self
+    /**
+     * Episode type: `full`, `trailer`, `bonus`. Default: `full`.
+     */
+    public function episodeType(?ItunesEpisodeTypeEnum $episodeType): self
     {
+        if (! $episodeType) {
+            return $this;
+        }
+
         $this->episodeType = $episodeType;
+        $this->item['itunes:episodeType'] = $episodeType->value;
 
         return $this;
     }
 
-    public function season(string $season): self
+    public function season(?int $season): self
     {
+        if (! $season) {
+            return $this;
+        }
+
         $this->season = $season;
+        $this->item['itunes:season'] = $this->season;
 
         return $this;
     }
 
-    public function episode(string $episode): self
+    public function episode(?int $episode): self
     {
+        if (! $episode) {
+            return $this;
+        }
+
         $this->episode = $episode;
+        $this->item['itunes:episode'] = $this->episode;
 
         return $this;
     }
@@ -129,35 +230,104 @@ class PodcastItem
     public function isExplicit(): self
     {
         $this->isExplicit = true;
+        $this->item['itunes:explicit'] = 'yes';
 
         return $this;
     }
 
-    public function image(string $image): self
+    public function image(?string $image): self
     {
+        if (! $image) {
+            return $this;
+        }
+
         $this->image = $image;
+        $this->item['itunes:image'] = [
+            '_attributes' => [
+                'href' => $image,
+            ],
+        ];
+        $this->item['googleplay:image'] = [
+            '_attributes' => [
+                'href' => $image,
+            ],
+        ];
 
         return $this;
+    }
+
+    private function convertDuration(): string
+    {
+        $duration = $this->duration;
+        $hours = floor($duration / 3600);
+        $minutes = floor(($duration - $hours * 3600) / 60);
+        $seconds = $duration - $hours * 3600 - $minutes * 60;
+
+        return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+    }
+
+    private function useHTML(string $string): bool
+    {
+        $useHTML = false;
+        if ($string !== strip_tags($string)) {
+            $useHTML = true;
+        }
+
+        return $useHTML;
+    }
+
+    /**
+     * @param  string[]  $fields
+     */
+    private function required(array $fields): void
+    {
+        foreach ($fields as $field) {
+            if (! $this->{$field}) {
+                throw new Exception("Podcast item `$field` is required");
+            }
+        }
+
     }
 
     public function get(): array
     {
+        $this->title($this->title);
+        $this->subtitle($this->subtitle);
+        $this->description($this->description);
+        $this->publishDate($this->publishDate);
+        $this->enclosure($this->enclosure);
+        $this->link($this->link);
+        $this->author($this->author);
+        $this->keywords($this->keywords);
+        $this->duration($this->duration);
+        $this->episodeType($this->episodeType);
+        $this->season($this->season);
+        $this->episode($this->episode);
+        if ($this->isExplicit) {
+            $this->isExplicit();
+        }
+        $this->image($this->image);
+
+        $this->required(['title', 'link', 'enclosure', 'publishDate']);
+
+        if (! $this->guid) {
+            $this->guid = base64_encode($this->title.$this->link.$this->publishDate->format(DateTime::RSS));
+        }
+
         return [
-            'title' => $this->title,
-            'guid' => $this->guid,
-            'itunes:subtitle' => $this->subtitle,
-            'description' => $this->description,
-            'pubDate' => $this->publishDate,
-            'enclosure' => $this->enclosure,
-            'link' => $this->link,
-            'itunes:author' => $this->author,
-            'itunes:keywords' => $this->keywords,
-            'itunes:duration' => $this->duration,
-            'itunes:episodeType' => $this->episodeType,
-            'itunes:season' => $this->season,
-            'itunes:episode' => $this->episode,
-            'itunes:explicit' => $this->isExplicit,
-            'itunes:image' => $this->image,
+            'guid' => [
+                '_attributes' => [
+                    'isPermaLink' => 'false',
+                ],
+                '_value' => $this->guid,
+            ],
+            ...$this->item,
+            'psc:chapters' => [
+                '_attributes' => [
+                    'version' => '1.1',
+                ],
+                '_value' => '',
+            ],
         ];
     }
 }

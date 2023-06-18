@@ -1,9 +1,10 @@
 {
     "name": "kiwilan/php-rss",
-    "description": "This is my package php-rss",
+    "description": "PHP package to generate RSS feeds with presets.",
     "keywords": [
-        "kiwilan",
-        "php-rss"
+        "php",
+        "rss",
+        "feed"
     ],
     "homepage": "https://github.com/kiwilan/php-rss",
     "license": "MIT",

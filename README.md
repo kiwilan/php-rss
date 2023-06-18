@@ -31,13 +31,22 @@ composer require kiwilan/php-rss
 composer test
 ```
 
+## Resources
+
+-   <https://www.wakdev.com/fr/more/wiki/php-mysql/generation-dun-flux-rss-en-php.html>
+-   <https://podcasters.apple.com/support/1691-apple-podcasts-categories>
+-   <https://www.podcastersroundtable.com/pm17/>
+-   <https://www.castfeedvalidator.com/validate.php>
+-   <https://help.podbean.com/support/solutions/articles/25000010756-how-to-set-ios11-itunes-feed-tags-in-your-podcast>
+-   <https://castos.com/podcast-rss-feed/>
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Credits
 
--   [`spatie`](https://github.com/spatie) for `spatie/package-skeleton-php`
+-   [`spatie`](https://github.com/spatie) for `spatie/package-skeleton-php` and `spatie/array-to-xml`
 
 ## License
 

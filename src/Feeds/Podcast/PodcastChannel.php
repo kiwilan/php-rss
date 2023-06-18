@@ -10,11 +10,6 @@ use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
 use Kiwilan\Rss\Feeds\FeedChannel;
 
-/**
- * @docs https://podcasters.apple.com/support/1691-apple-podcasts-categories
- * @docs https://castos.com/podcast-rss-feed/
- * @docs iTunes: https://www.podcastersroundtable.com/pm17/
- */
 class PodcastChannel extends FeedChannel
 {
     /**
@@ -158,23 +153,18 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function authorName(string $name): self
+    public function author(string $name, string $email): self
     {
         $this->authorName = $name;
+        $this->authorEmail = $email;
+
         $this->feed->setChannel([
             'itunes:author' => $name,
+            'itunes:owner' => [
+                'itunes:name' => $name,
+                'itunes:email' => $email,
+            ],
             'googleplay:author' => $name,
-            'itunes:owner.name' => $name,
-        ]);
-
-        return $this;
-    }
-
-    public function authorEmail(string $email): self
-    {
-        $this->authorEmail = $email;
-        $this->feed->setChannel([
-            'itunes:owner.email' => $email,
             'googleplay:email' => $email,
         ]);
 
@@ -220,7 +210,8 @@ class PodcastChannel extends FeedChannel
             $subCategory,
         ];
         $this->feed->setChannel([
-            'category' => [
+            'category' => $category->value,
+            'itunes:category' => [
                 '_attributes' => [
                     'text' => $category->value,
                 ],
@@ -235,24 +226,57 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
+    /**
+     * Set image for podcast, must be set after `title` and `link`.
+     */
     public function image(string $image): self
     {
         $this->image = $image;
         $this->feed->setChannel([
-            'image' => $image,
-            'itunes:image' => $image,
-            'googleplay:image' => $image,
+            'image' => [
+                'url' => $image,
+                'title' => $this->title,
+                'link' => $this->link,
+            ],
+            'itunes:image' => [
+                '_attributes' => [
+                    'href' => $image,
+                ],
+            ],
+            'googleplay:image' => [
+                '_attributes' => [
+                    'href' => $image,
+                ],
+            ],
         ]);
 
         return $this;
     }
 
-    public function addItem(PodcastItem $item): self
+    public function addItem(PodcastItem|array $item): self
     {
+        if (is_array($item)) {
+            $item = new PodcastItem(
+                title: $item['title'] ?? null,
+                guid: $item['guid'] ?? null,
+                subtitle: $item['subtitle'] ?? null,
+                description: $item['description'] ?? null,
+                publishDate: $item['publishDate'] ?? null,
+                enclosure: $item['enclosure'] ?? null,
+                link: $item['link'] ?? null,
+                author: $item['author'] ?? null,
+                keywords: $item['keywords'] ?? null,
+                duration: $item['duration'] ?? null,
+                episodeType: $item['episodeType'] ?? null,
+                season: $item['season'] ?? null,
+                episode: $item['episode'] ?? null,
+                isExplicit: $item['isExplicit'] ?? null,
+                image: $item['image'] ?? null,
+            );
+        }
+
         $this->items[] = $item;
-        $this->feed->setChannel([
-            'item' => $item->get(),
-        ]);
+        $this->feed->setItem($item->get());
 
         return $this;
     }

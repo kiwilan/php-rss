@@ -19,10 +19,15 @@ class FeedChannel
 
     public function get(): string
     {
+        ray($this->feed->items());
+
         return ArrayToXml::convert(
             array: [
                 '_attributes' => $this->feed->attributes(),
-                'channel' => $this->feed->channel(),
+                'channel' => [
+                    ...$this->feed->channel(),
+                    'item' => $this->feed->items(),
+                ],
             ],
             rootElement: $this->feed->root(),
             xmlEncoding: $this->feed->encoding(),
