@@ -1,5 +1,7 @@
 # PHP RSS
 
+![Banner with abstract data picture in background and PHP RSS title](docs/banner.jpg)
+
 [![php][php-version-src]][php-version-href]
 [![version][version-src]][version-href]
 [![downloads][downloads-src]][downloads-href]

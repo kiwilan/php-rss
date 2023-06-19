@@ -5,7 +5,10 @@
     "keywords": [
         "php",
         "rss",
-        "feed"
+        "feed",
+        "podcast",
+        "atom",
+        "xml"
     ],
     "homepage": "https://github.com/kiwilan/php-rss",
     "license": "MIT",
