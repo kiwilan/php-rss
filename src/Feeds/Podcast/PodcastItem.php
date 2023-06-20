@@ -11,7 +11,7 @@ class PodcastItem
     /**
      * @param  string[]|null  $keywords
      */
-    public function __construct(
+    protected function __construct(
         protected ?string $title = null, // `title`
         protected ?string $guid = null, // `guid`
         protected ?string $subtitle = null, // `itunes:subtitle`
@@ -51,13 +51,19 @@ class PodcastItem
     /**
      * Unique identifier for the episode, optional, can be auto-generated.
      */
-    public function guid(?string $guid): self
+    public function guid(?string $guid, bool $isPermaLink = false): self
     {
         if (! $guid) {
             return $this;
         }
 
         $this->guid = $guid;
+        $this->item['guid'] = [
+            '_attributes' => [
+                'isPermaLink' => $isPermaLink ? 'true' : 'false',
+            ],
+            '_value' => $guid,
+        ];
 
         return $this;
     }
@@ -124,11 +130,12 @@ class PodcastItem
         return $this;
     }
 
-    public function enclosure(?PodcastEnclosure $enclosure): self
+    public function enclosure(?string $url, ?int $length, ?string $type): self
     {
-        if (! $enclosure) {
-            return $this;
-        }
+        $enclosure = PodcastEnclosure::make()
+            ->setUrl($url)
+            ->setLength($length)
+            ->setType($type);
 
         $this->enclosure = $enclosure;
         $this->item['enclosure'] = $enclosure->get();
@@ -295,7 +302,9 @@ class PodcastItem
         $this->subtitle($this->subtitle);
         $this->description($this->description);
         $this->publishDate($this->publishDate);
-        $this->enclosure($this->enclosure);
+        if ($this->enclosure) {
+            $this->enclosure($this->enclosure->url(), $this->enclosure->length(), $this->enclosure->type());
+        }
         $this->link($this->link);
         $this->author($this->author);
         $this->keywords($this->keywords);
@@ -311,16 +320,19 @@ class PodcastItem
         $this->required(['title', 'link', 'enclosure', 'publishDate']);
 
         if (! $this->guid) {
-            $this->guid = base64_encode($this->title.$this->link.$this->publishDate->format(DateTime::RSS));
+            $this->guid = base64_encode($this->title.$this->publishDate->format(DateTime::RSS));
+            $this->item = [
+                'guid' => [
+                    '_attributes' => [
+                        'isPermaLink' => 'false',
+                    ],
+                    '_value' => $this->guid,
+                ],
+                ...$this->item,
+            ];
         }
 
         return [
-            'guid' => [
-                '_attributes' => [
-                    'isPermaLink' => 'false',
-                ],
-                '_value' => $this->guid,
-            ],
             ...$this->item,
             'psc:chapters' => [
                 '_attributes' => [

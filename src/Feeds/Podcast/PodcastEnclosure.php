@@ -4,7 +4,7 @@ namespace Kiwilan\Rss\Feeds\Podcast;
 
 class PodcastEnclosure
 {
-    public function __construct(
+    protected function __construct(
         protected ?string $url = null,
         protected ?int $length = null,
         protected ?string $type = null,
@@ -16,25 +16,19 @@ class PodcastEnclosure
         return new self();
     }
 
-    public function url(string $url): self
+    public function url(): ?string
     {
-        $this->url = $url;
-
-        return $this;
+        return $this->url;
     }
 
-    public function length(int $length): self
+    public function length(): ?int
     {
-        $this->length = $length;
-
-        return $this;
+        return $this->length;
     }
 
-    public function type(string $type): self
+    public function type(): ?string
     {
-        $this->type = $type;
-
-        return $this;
+        return $this->type;
     }
 
     public function setUrl(string $url): self

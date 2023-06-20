@@ -2,9 +2,9 @@
 
 namespace Kiwilan\Rss;
 
-use Kiwilan\Rss\Feeds\FeedChannel;
 use Kiwilan\Rss\Feeds\FeedConstants;
 use Kiwilan\Rss\Feeds\Podcast\PodcastChannel;
+use Kiwilan\Rss\Feeds\Raw\RawChannel;
 
 class Feed
 {
@@ -14,9 +14,9 @@ class Feed
      * @param  array<string,string>  $items
      */
     protected function __construct(
-        protected string $root = '',
+        protected string $root = 'rss',
         protected string $version = '1.0',
-        protected ?string $encoding = null,
+        protected string $encoding = 'UTF-8',
         protected ?bool $standalone = null,
         protected array $attributes = [],
         protected array $channel = [],
@@ -32,9 +32,9 @@ class Feed
     }
 
     public function template(
-        string $root = '',
+        string $root = 'rss',
         string $version = '1.0',
-        ?string $encoding = null,
+        string $encoding = 'UTF-8',
         ?bool $standalone = null,
         array $attributes = [],
     ): self {
@@ -61,9 +61,9 @@ class Feed
         return PodcastChannel::make($this);
     }
 
-    public function raw(): FeedChannel
+    public function raw(): RawChannel
     {
-        return FeedChannel::make($this);
+        return RawChannel::make($this);
     }
 
     public function root(): string

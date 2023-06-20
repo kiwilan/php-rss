@@ -18,6 +18,7 @@ PHP package to generate RSS feeds with presets.
 |  Type   | Supported |          With          |
 | :-----: | :-------: | :--------------------: |
 | Podcast |    ✅     | `itunes`, `googleplay` |
+|   Raw   |    ✅     |                        |
 
 ## Installation
 
@@ -34,26 +35,86 @@ composer require kiwilan/php-rss
 Podcast RSS feed is quite old and has a lot of different versions. This package is based on the [Podcast namespace](https://podcastnamespace.org/) and the [Apple Podcasts tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390).
 
 ```php
-$podcast = Feed::make()->podcast();
+$podcast = Feed::make()->podcast()
+  ->title('2 Heures De Perdues')
+  ->link('https://www.2hdp.fr')
+  ->subtitle('Pourquoi gagner du temps quand on peut en perdre devant de mauvais films ?')
+  ->description('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films')
+  ->language('fr')
+  ->copyright('℗ & © 2019 Fréquence Moderne')
+  ->lastUpdate(new DateTime('2021-09-01 00:00:00'))
+  ->webmaster('feeds@ausha.co (Ausha)')
+  ->generator('Ausha (https://www.ausha.co)')
+  ->keywords(['films', 'critiques', 'comédie'])
+  ->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com')
+  ->explicit(ItunesExplicit::yes)
+  ->isPrivate()
+  ->type(ItunesTypeEnum::episodic)
+  ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
+  ->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
 
-$podcast->title('2 Heures De Perdues');
-$podcast->link('https://www.2hdp.fr');
-$podcast->subtitle('Pourquoi gagner du temps quand on peut en perdre devant de mauvais films ?');
-$podcast->description('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
-$podcast->language('fr');
-$podcast->copyright('℗ & © 2019 Fréquence Moderne');
-$podcast->lastUpdate(new DateTime('2021-09-01 00:00:00'));
-$podcast->webmaster('feeds@ausha.co (Ausha)');
-$podcast->generator('Ausha (https://www.ausha.co)');
-$podcast->keywords(['films', 'critiques', 'comédie']);
-$podcast->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com');
-$podcast->explicit(ItunesExplicit::yes);
-$podcast->isPrivate();
-$podcast->type(ItunesTypeEnum::episodic);
-$podcast->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews);
-$podcast->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
+$item1 = PodcastItem::make()
+  ->title("Peau d'Ane")
+  ->guid('custom-and-unique-key', isPermaLink: true)
+  ->subtitle('On discute du chef d\'oeuvre de Jacques. Des réactions ? @2_HDP')
+  ->description('<p>On discute du chef d\'oeuvre de Jacques. Des réactions ? @2_HDP</p>')
+  ->publishDate('2023-06-14 08:39:25')
+  ->enclosure(
+      url: 'https://chtbl.com/track/47E579/https://audio.ausha.co/B4mpWfDq5KDa.mp3?t=1685693288',
+      length: 56898528,
+      type: 'audio/mpeg'
+  )
+  ->link('https://podcast.ausha.co/2-heures-de-perdues/peau-d-ane')
+  ->author('2 Heures de Perdues')
+  ->keywords([])
+  ->duration(3551)
+  ->episodeType(ItunesEpisodeTypeEnum::full)
+  ->season(9)
+  ->episode(34)
+  ->isExplicit(false)
+  ->image('https://image.ausha.co/XboDHYC69Oorw8MBObAkQ2sTPdxGTkexH3nYQ8Ky_1400x1400.jpeg?t=1619074925');
 
+$podcast->addItem($item1); // Add item to podcast
 $podcast->get(); // Get XML feed
+```
+
+### Raw
+
+```php
+$podcast = Feed::make()
+        ->template(
+            root: 'rss',
+            version: '1.0',
+            encoding: 'UTF-8',
+            attributes: [
+                ...FeedConstants::RSS_FEED,
+                'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd',
+            ],
+        )
+        ->raw()
+        ->channel([
+            'title' => '2 Heures De Perdues',
+            'link' => 'https://www.2hdp.fr',
+            'description' => 'Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films',
+            'language' => 'fr',
+            'lastBuildDate' => 'Wed, 01 Sep 2021 00:00:00 +0000',
+        ])
+        ->addItem([
+            'title' => "Peau d'Ane",
+            'link' => 'https://podcast.ausha.co/2-heures-de-perdues/peau-d-ane',
+            'description' => '<p>On discute du chef d\'oeuvre de Jacques. Des réactions ? @2_HDP</p>',
+            'pubDate' => 'Wed, 14 Jun 2023 08:39:25 +0000',
+            'enclosure' => [
+                '_attributes' => [
+                    'url' => 'https://chtbl.com/track/47E579/https://audio.ausha.co/B4mpWfDq5KDa.mp3?t=1685693288',
+                    'length' => '56898528',
+                    'type' => 'audio/mpeg',
+                ],
+            ],
+            '__custom:itunes\\:author' => '2 Heures de Perdues',
+            '__custom:itunes\\:duration' => '00:59:11',
+            '__custom:itunes\\:episodeType' => 'full',
+        ]);
 ```
 
 ## Testing

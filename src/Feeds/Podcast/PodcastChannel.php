@@ -45,7 +45,7 @@ class PodcastChannel extends FeedChannel
         parent::__construct($feed);
     }
 
-    public function title(string $title): self
+    public function title(?string $title): self
     {
         $this->title = $title;
         $this->feed->setChannel([
@@ -55,7 +55,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function link(string $link): self
+    public function link(?string $link): self
     {
         $this->link = $link;
         $this->feed->setChannel([
@@ -65,7 +65,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function subtitle(string $subtitle): self
+    public function subtitle(?string $subtitle): self
     {
         $this->subtitle = $subtitle;
         $this->feed->setChannel([
@@ -75,7 +75,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function description(string $description): self
+    public function description(?string $description): self
     {
         $this->description = $description;
         $this->feed->setChannel([
@@ -87,7 +87,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function language(string $language): self
+    public function language(?string $language): self
     {
         $this->language = $language;
         $this->feed->setChannel([
@@ -98,7 +98,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function copyright(string $copyright): self
+    public function copyright(?string $copyright): self
     {
         $this->copyright = $copyright;
         $this->feed->setChannel([
@@ -108,7 +108,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function lastUpdate(DateTime|string $lastUpdate): self
+    public function lastUpdate(DateTime|string|null $lastUpdate): self
     {
         if (is_string($lastUpdate)) {
             $lastUpdate = new DateTime($lastUpdate);
@@ -123,7 +123,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function webmaster(string $webmaster): self
+    public function webmaster(?string $webmaster): self
     {
         $this->webmaster = $webmaster;
         $this->feed->setChannel([
@@ -133,7 +133,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function generator(string $generator): self
+    public function generator(?string $generator): self
     {
         $this->generator = $generator;
         $this->feed->setChannel([
@@ -143,8 +143,12 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function keywords(array $keywords): self
+    public function keywords(?array $keywords): self
     {
+        if (! $keywords) {
+            return $this;
+        }
+
         $this->keywords = $keywords;
         $this->feed->setChannel([
             'itunes:keywords' => implode(',', $keywords),
@@ -153,8 +157,12 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function author(string $name, string $email): self
+    public function author(?string $name, ?string $email): self
     {
+        if (! $name && ! $email) {
+            return $this;
+        }
+
         $this->authorName = $name;
         $this->authorEmail = $email;
 
@@ -235,8 +243,12 @@ class PodcastChannel extends FeedChannel
     /**
      * Set image for podcast, must be set after `title` and `link`.
      */
-    public function image(string $image): self
+    public function image(?string $image): self
     {
+        if (! $image) {
+            return $this;
+        }
+
         $this->image = $image;
         $this->feed->setChannel([
             'image' => [
@@ -262,23 +274,28 @@ class PodcastChannel extends FeedChannel
     public function addItem(PodcastItem|array $item): self
     {
         if (is_array($item)) {
-            $item = new PodcastItem(
-                title: $item['title'] ?? null,
-                guid: $item['guid'] ?? null,
-                subtitle: $item['subtitle'] ?? null,
-                description: $item['description'] ?? null,
-                publishDate: $item['publishDate'] ?? null,
-                enclosure: $item['enclosure'] ?? null,
-                link: $item['link'] ?? null,
-                author: $item['author'] ?? null,
-                keywords: $item['keywords'] ?? null,
-                duration: $item['duration'] ?? null,
-                episodeType: $item['episodeType'] ?? null,
-                season: $item['season'] ?? null,
-                episode: $item['episode'] ?? null,
-                isExplicit: $item['isExplicit'] ?? null,
-                image: $item['image'] ?? null,
-            );
+            $enclosure = $item['enclosure'] ?? null;
+            if ($enclosure) {
+                $enclosureUrl = $enclosure['url'] ?? null;
+                $enclosureLength = $enclosure['length'] ?? null;
+                $enclosureType = $enclosure['type'] ?? null;
+            }
+            $item = PodcastItem::make()
+                ->title($item['title'] ?? null)
+                ->guid($item['guid'] ?? null)
+                ->subtitle($item['subtitle'] ?? null)
+                ->description($item['description'] ?? null)
+                ->publishDate($item['publishDate'] ?? null)
+                ->enclosure($enclosureUrl, $enclosureLength, $enclosureType)
+                ->link($item['link'] ?? null)
+                ->author($item['author'] ?? null)
+                ->keywords($item['keywords'] ?? null)
+                ->duration($item['duration'] ?? null)
+                ->episodeType($item['episodeType'] ?? null)
+                ->season($item['season'] ?? null)
+                ->episode($item['episode'] ?? null)
+                ->isExplicit($item['isExplicit'] ?? null)
+                ->image($item['image'] ?? null);
         }
 
         $this->items[] = $item;

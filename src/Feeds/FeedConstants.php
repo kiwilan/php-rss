@@ -16,4 +16,9 @@ class FeedConstants
         'xmlns:podlove' => 'http://podlove.org/simple-chapters/',
         'version' => '2.0',
     ];
+
+    public const RSS_FEED = [
+        'xmlns:atom' => 'http://www.w3.org/2005/Atom',
+        'version' => '2.0',
+    ];
 }
