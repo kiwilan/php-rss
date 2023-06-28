@@ -22,7 +22,9 @@ it('can make podcast feed', function () {
         ->webmaster('feeds@ausha.co (Ausha)')
         ->generator('Ausha (https://www.ausha.co)')
         ->keywords(['films', 'critiques', 'comédie'])
-        ->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com')
+        ->author('2HDP')
+        ->ownerName('2 Heures De Perdues')
+        ->ownerEmail('2heuresdeperdues@gmail.com')
         ->explicit(ItunesExplicit::yes)
         ->isPrivate()
         ->type(ItunesTypeEnum::episodic)
@@ -90,7 +92,13 @@ it('can make podcast feed', function () {
     expect($xml->find('webMaster'))->toBe('feeds@ausha.co (Ausha)');
     expect($xml->find('generator'))->toBe('Ausha (https://www.ausha.co)');
     expect($xml->find('itunes:keywords'))->toBe('films,critiques,comédie');
-    expect($xml->find('itunes:author'))->toBe('2 Heures De Perdues');
+
+    expect($xml->find('itunes:author'))->toBe('2HDP');
+    expect($xml->find('itunes:owner')['itunes:name'])->toBe('2 Heures De Perdues');
+    expect($xml->find('itunes:owner')['itunes:email'])->toBe('2heuresdeperdues@gmail.com');
+    expect($xml->find('googleplay:author'))->toBe('2 Heures De Perdues');
+    expect($xml->find('googleplay:email'))->toBe('2heuresdeperdues@gmail.com');
+
     expect($xml->find('itunes:name'))->toBe('2 Heures De Perdues');
     expect($xml->find('itunes:email'))->toBe('2heuresdeperdues@gmail.com');
     expect($xml->find('itunes:explicit'))->toBe('yes');

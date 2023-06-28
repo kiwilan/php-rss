@@ -31,8 +31,9 @@ class PodcastChannel extends FeedChannel
         protected ?string $guid = null, // `guid`
         protected ?array $keywords = null, // `itunes:keywords`
 
-        protected ?string $authorName = null, // `itunesAuthor`, `googleplayAuthor`, `itunesOwner.name`
-        protected ?string $authorEmail = null, // `itunesOwner.email`, `googleplayEmail`
+        protected ?string $author = null, // `dc:creator`, `itunes:author`, `googleplay:author`
+        protected ?string $ownerName = null, // `itunes:owner.name`
+        protected ?string $ownerEmail = null, // `itunes:owner.email`, `googleplayEmail`
 
         protected ?ItunesExplicit $explicit = null, // `itunes:explicit`, `googleplay:explicit`
         protected bool $isPrivate = false, // `itunesBlock`, `googleplayBlock`
@@ -175,14 +176,13 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function author(string $name, ?string $email = null): self
+    public function author(string $name): self
     {
-        if (! $name && ! $email) {
+        if (! $name) {
             return $this;
         }
 
-        $this->authorName = $name;
-        $this->authorEmail = $email;
+        $this->author = $name;
 
         $this->feed->setChannel([
             'dc:creator' => [
@@ -192,11 +192,43 @@ class PodcastChannel extends FeedChannel
                 '_value' => $name,
             ],
             'itunes:author' => $name,
+        ]);
+
+        return $this;
+    }
+
+    public function ownerName(string $name): self
+    {
+        if (! $name) {
+            return $this;
+        }
+
+        $this->ownerName = $name;
+
+        $this->feed->setChannel([
             'itunes:owner' => [
+                ...$this->feed->channel()['itunes:owner'] ?? [],
                 'itunes:name' => $name,
-                'itunes:email' => $email,
             ],
             'googleplay:author' => $name,
+        ]);
+
+        return $this;
+    }
+
+    public function ownerEmail(string $email): self
+    {
+        if (! $email) {
+            return $this;
+        }
+
+        $this->ownerEmail = $email;
+
+        $this->feed->setChannel([
+            'itunes:owner' => [
+                ...$this->feed->channel()['itunes:owner'] ?? [],
+                'itunes:email' => $email,
+            ],
             'googleplay:email' => $email,
         ]);
 
