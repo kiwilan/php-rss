@@ -2,6 +2,12 @@
 
 All notable changes to `php-rss` will be documented in this file.
 
+## 0.2.1 - 2023-06-28
+
+- Remove `PodcastItem::class` required field
+- Add `PodcastChannel::class` `guid` field
+- Fix `categories` field
+
 ## 0.2.0 - 2023-06-20
 
 - add `raw` option for channel
