@@ -60,6 +60,13 @@ class PodcastChannel extends FeedChannel
     {
         $this->link = $link;
         $this->feed->setChannel([
+            'atom:link' => [
+                '_attributes' => [
+                    'href' => $link,
+                    'rel' => 'self',
+                    'type' => 'application/rss+xml',
+                ],
+            ],
             'link' => $link,
         ]);
 

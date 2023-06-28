@@ -82,6 +82,7 @@ it('can make podcast feed', function () {
 
     expect($xml->root())->toBe('rss');
     expect($xml->find('title'))->toBe('2 Heures De Perdues');
+    expect($xml->find('atom:link')['@attributes']['href'])->toBe('https://www.2hdp.fr');
     expect($xml->find('link'))->toBe('https://www.2hdp.fr');
     expect($xml->find('description'))->toBe('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
     expect($xml->find('language'))->toBe('fr');
