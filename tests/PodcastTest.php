@@ -26,7 +26,7 @@ it('can make podcast feed', function () {
         ->explicit(ItunesExplicit::yes)
         ->isPrivate()
         ->type(ItunesTypeEnum::episodic)
-        ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
+        ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews)
         ->addCategory(ItunesCategoryEnum::leisure, ItunesSubCategoryEnum::leisure_hobbies)
         ->addCategory(ItunesCategoryEnum::fiction)
         ->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');

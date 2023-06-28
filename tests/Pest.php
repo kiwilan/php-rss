@@ -27,7 +27,7 @@ $podcast = Feed::make()->podcast()
     ->explicit(ItunesExplicit::yes)
     ->isPrivate()
     ->type(ItunesTypeEnum::episodic)
-    ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
+    ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews)
     ->addCategory(ItunesCategoryEnum::leisure, ItunesSubCategoryEnum::leisure_hobbies)
     ->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
 
