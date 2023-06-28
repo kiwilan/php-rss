@@ -28,6 +28,7 @@ it('can make podcast feed', function () {
         ->type(ItunesTypeEnum::episodic)
         ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
         ->addCategory(ItunesCategoryEnum::leisure, ItunesSubCategoryEnum::leisure_hobbies)
+        ->addCategory(ItunesCategoryEnum::fiction)
         ->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
 
     $item1 = PodcastItem::make()
@@ -52,7 +53,7 @@ it('can make podcast feed', function () {
         ->image('https://image.ausha.co/XboDHYC69Oorw8MBObAkQ2sTPdxGTkexH3nYQ8Ky_1400x1400.jpeg?t=1619074925');
 
     $item3 = PodcastItem::make()
-        ->title('Movie')
+        ->title('Movie 1')
         ->link('https://podcast.ausha.co/2-heures-de-perdues/peau-d-ane')
         ->publishDate('2023-06-14 08:39:25')
         ->enclosure(
@@ -63,7 +64,7 @@ it('can make podcast feed', function () {
 
     $podcast->addItem($item1);
     $podcast->addItem([
-        'title' => 'Movie',
+        'title' => 'Movie 2',
         'link' => 'https://podcast.ausha.co/2-heures-de-perdues/peau-d-ane',
         'publishDate' => '2023-06-14 08:39:25',
         'enclosure' => [
@@ -80,33 +81,33 @@ it('can make podcast feed', function () {
     $xml = XmlReader::make($xml);
 
     expect($xml->root())->toBe('rss');
-    expect($xml->search('title'))->toBe('2 Heures De Perdues');
-    expect($xml->search('link'))->toBe('https://www.2hdp.fr');
-    expect($xml->search('description'))->toBe('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
-    expect($xml->search('language'))->toBe('fr');
-    expect($xml->search('lastBuildDate'))->toBe('Wed, 01 Sep 2021 00:00:00 +0000');
-    expect($xml->search('webMaster'))->toBe('feeds@ausha.co (Ausha)');
-    expect($xml->search('generator'))->toBe('Ausha (https://www.ausha.co)');
-    expect($xml->search('itunes:keywords'))->toBe('films,critiques,comédie');
-    expect($xml->search('itunes:author'))->toBe('2 Heures De Perdues');
-    expect($xml->search('itunes:name'))->toBe('2 Heures De Perdues');
-    expect($xml->search('itunes:email'))->toBe('2heuresdeperdues@gmail.com');
-    expect($xml->search('itunes:explicit'))->toBe('yes');
-    expect($xml->search('itunes:block'))->toBe('Yes');
-    expect($xml->search('itunes:type'))->toBe('episodic');
+    expect($xml->find('title'))->toBe('2 Heures De Perdues');
+    expect($xml->find('link'))->toBe('https://www.2hdp.fr');
+    expect($xml->find('description'))->toBe('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
+    expect($xml->find('language'))->toBe('fr');
+    expect($xml->find('lastBuildDate'))->toBe('Wed, 01 Sep 2021 00:00:00 +0000');
+    expect($xml->find('webMaster'))->toBe('feeds@ausha.co (Ausha)');
+    expect($xml->find('generator'))->toBe('Ausha (https://www.ausha.co)');
+    expect($xml->find('itunes:keywords'))->toBe('films,critiques,comédie');
+    expect($xml->find('itunes:author'))->toBe('2 Heures De Perdues');
+    expect($xml->find('itunes:name'))->toBe('2 Heures De Perdues');
+    expect($xml->find('itunes:email'))->toBe('2heuresdeperdues@gmail.com');
+    expect($xml->find('itunes:explicit'))->toBe('yes');
+    expect($xml->find('itunes:block'))->toBe('Yes');
+    expect($xml->find('itunes:type'))->toBe('episodic');
 
-    $categories = $xml->search('category');
+    $categories = $xml->find('category');
     expect($categories[0])->toBe('TV &amp; Film');
     expect($categories[1])->toBe('Leisure');
 
-    $itunesCategories = $xml->search('itunes:category');
+    $itunesCategories = $xml->find('itunes:category');
     expect($itunesCategories[0]['@attributes']['text'])->toBe('TV &amp; Film');
     expect($itunesCategories[0]['itunes:category']['@attributes']['text'])->toBe('Film Reviews');
     expect($itunesCategories[1]['@attributes']['text'])->toBe('Leisure');
     expect($itunesCategories[1]['itunes:category']['@attributes']['text'])->toBe('Hobbies');
-    expect($xml->search('itunes:image')['@attributes']['href'])->toBe('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
-    expect($xml->search('item'))->toBeArray();
-    expect($xml->search('item'))->toHaveCount(3);
+    expect($xml->find('itunes:image')['@attributes']['href'])->toBe('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
+    expect($xml->find('item'))->toBeArray();
+    expect($xml->find('item'))->toHaveCount(3);
 });
 
 it('can save xml', function () {

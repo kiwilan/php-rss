@@ -80,6 +80,10 @@ $podcast->get(); // Get XML feed
 
 ### Raw
 
+> _Note_
+>
+> You can use [`spatie/array-to-xml`](https://github.com/spatie/array-to-xml#using-custom-keys) usage guide to help you.
+
 ```php
 $podcast = Feed::make()
         ->template(
@@ -117,6 +121,54 @@ $podcast = Feed::make()
         ]);
 ```
 
+### Example with Laravel
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use DateTime;
+use Kiwilan\Rss\Enums\ItunesCategoryEnum;
+use Kiwilan\Rss\Enums\ItunesExplicit;
+use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
+use Kiwilan\Rss\Enums\ItunesTypeEnum;
+use Kiwilan\Rss\Feed;
+use Spatie\RouteAttributes\Attributes\Get;
+use Spatie\RouteAttributes\Attributes\Prefix;
+
+#[Prefix('rss')]
+class RssController extends Controller
+{
+    #[Get('/')]
+    public function index()
+    {
+        $podcast = Feed::make()->podcast()
+            ->title('2 Heures De Perdues')
+            ->link('https://www.2hdp.fr')
+            ->subtitle('Pourquoi gagner du temps quand on peut en perdre devant de mauvais films ?')
+            ->description('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films')
+            ->language('fr')
+            ->copyright('℗ & © 2019 Fréquence Moderne')
+            ->lastUpdate(new DateTime('2021-09-01 00:00:00'))
+            ->webmaster('feeds@ausha.co (Ausha)')
+            ->generator('Ausha (https://www.ausha.co)')
+            ->keywords(['films', 'critiques', 'comédie'])
+            ->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com')
+            ->explicit(ItunesExplicit::yes)
+            ->isPrivate()
+            ->type(ItunesTypeEnum::episodic)
+            ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
+            ->image('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg')
+        ;
+
+        return response($podcast->get(), 200, [
+            'Content-Type' => 'application/xml',
+        ]);
+    }
+}
+```
+
 ## Testing
 
 ```bash
@@ -127,6 +179,7 @@ composer test
 
 -   <https://www.wakdev.com/fr/more/wiki/php-mysql/generation-dun-flux-rss-en-php.html>
 -   <https://podcasters.apple.com/support/1691-apple-podcasts-categories>
+-   <https://github.com/gpodder/podcast-feed-best-practice/blob/master/podcast-feed-best-practice.md>
 -   <https://www.podcastersroundtable.com/pm17/>
 -   <https://www.castfeedvalidator.com/validate.php>
 -   <https://help.podbean.com/support/solutions/articles/25000010756-how-to-set-ios11-itunes-feed-tags-in-your-podcast>

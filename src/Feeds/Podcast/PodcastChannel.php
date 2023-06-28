@@ -28,6 +28,7 @@ class PodcastChannel extends FeedChannel
         protected ?DateTime $lastUpdate = null, // `lastBuildDate`, `pubDate`
         protected ?string $webmaster = null, // `webMaster`
         protected ?string $generator = null, // `generator`
+        protected ?string $guid = null, // `guid`
         protected ?array $keywords = null, // `itunes:keywords`
 
         protected ?string $authorName = null, // `itunesAuthor`, `googleplayAuthor`, `itunesOwner.name`
@@ -143,6 +144,16 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
+    public function guid(?string $guid): self
+    {
+        $this->guid = $guid;
+        $this->feed->setChannel([
+            'guid' => $guid,
+        ]);
+
+        return $this;
+    }
+
     public function keywords(?array $keywords): self
     {
         if (! $keywords) {
@@ -157,7 +168,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function author(?string $name, ?string $email): self
+    public function author(string $name, ?string $email = null): self
     {
         if (! $name && ! $email) {
             return $this;
@@ -167,6 +178,12 @@ class PodcastChannel extends FeedChannel
         $this->authorEmail = $email;
 
         $this->feed->setChannel([
+            'dc:creator' => [
+                '_attributes' => [
+                    'xmlns:dc' => 'http://purl.org/dc/elements/1.1/',
+                ],
+                '_value' => $name,
+            ],
             'itunes:author' => $name,
             'itunes:owner' => [
                 'itunes:name' => $name,
@@ -223,19 +240,26 @@ class PodcastChannel extends FeedChannel
             $subCategory,
         ];
 
-        $this->feed->setChannel([
+        $categoryData = [
             '__custom:category:'.$size => $category->value,
-            '__custom:itunes\\:category:'.$size => [
-                '_attributes' => [
-                    'text' => $category->value,
-                ],
-                'itunes:category' => [
-                    '_attributes' => [
-                        'text' => $subCategory?->value,
-                    ],
-                ],
+        ];
+
+        $itunesKey = '__custom:itunes\\:category:'.$size;
+        $categoryData[$itunesKey] = [
+            '_attributes' => [
+                'text' => $category->value,
             ],
-        ]);
+        ];
+
+        if ($subCategory) {
+            $categoryData[$itunesKey]['itunes:category'] = [
+                '_attributes' => [
+                    'text' => $subCategory->value,
+                ],
+            ];
+        }
+
+        $this->feed->setChannel($categoryData);
 
         return $this;
     }

@@ -162,6 +162,13 @@ class PodcastItem
         }
 
         $this->author = $author;
+        $this->item['dc:creator'] = [
+            '_attributes' => [
+                'xmlns:dc' => 'http://purl.org/dc/elements/1.1/',
+            ],
+            '_value' => $author,
+        ];
+        $this->item['author'] = $author;
         $this->item['itunes:author'] = $author;
         $this->item['googleplay:author'] = $author;
 
@@ -183,14 +190,14 @@ class PodcastItem
         return $this;
     }
 
-    public function duration(?int $duration): self
+    public function duration(?int $duration, bool $convert = false): self
     {
         if (! $duration) {
             return $this;
         }
 
         $this->duration = $duration;
-        $this->item['itunes:duration'] = $this->convertDuration();
+        $this->item['itunes:duration'] = $convert ? $this->convertDuration($duration) : $duration;
 
         return $this;
     }
@@ -263,6 +270,18 @@ class PodcastItem
         return $this;
     }
 
+    public function chapters(): self
+    {
+        $this->item['psc:chapters'] = [
+            '_attributes' => [
+                'version' => '1.1',
+            ],
+            '_value' => '',
+        ];
+
+        return $this;
+    }
+
     private function convertDuration(): string
     {
         $duration = $this->duration;
@@ -317,29 +336,24 @@ class PodcastItem
         }
         $this->image($this->image);
 
-        $this->required(['title', 'link', 'enclosure', 'publishDate']);
+        // $this->required(['title', 'link', 'enclosure', 'publishDate']);
 
-        if (! $this->guid) {
-            $this->guid = base64_encode($this->title.$this->publishDate->format(DateTime::RSS));
-            $this->item = [
-                'guid' => [
-                    '_attributes' => [
-                        'isPermaLink' => 'false',
-                    ],
-                    '_value' => $this->guid,
-                ],
-                ...$this->item,
-            ];
-        }
+        // if (! $this->guid) {
+        //     $this->guid = base64_encode($this->title.$this->publishDate->format(DateTime::RSS));
+        //     $this->item = [
+        //         'guid' => [
+        //             '_attributes' => [
+        //                 'isPermaLink' => 'false',
+        //             ],
+        //             '_value' => $this->guid,
+        //         ],
+        //         ...$this->item,
+        //     ];
+        // }
 
         return [
             ...$this->item,
-            'psc:chapters' => [
-                '_attributes' => [
-                    'version' => '1.1',
-                ],
-                '_value' => '',
-            ],
+
         ];
     }
 }

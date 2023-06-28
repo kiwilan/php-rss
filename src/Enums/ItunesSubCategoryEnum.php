@@ -118,9 +118,9 @@ enum ItunesSubCategoryEnum: string
     case sports_wrestling = 'Wrestling';
 
     // TV & Film
-    case tv_films_after_shows = 'After Shows';
-    case tv_films_film_history = 'Film History';
-    case tv_films_film_interviews = 'Film Interviews';
-    case tv_films_film_reviews = 'Film Reviews';
-    case tv_films_tv_reviews = 'TV Reviews';
+    case tv_film_after_shows = 'After Shows';
+    case tv_film_film_history = 'Film History';
+    case tv_film_film_interviews = 'Film Interviews';
+    case tv_film_film_reviews = 'Film Reviews';
+    case tv_film_tv_reviews = 'TV Reviews';
 }
