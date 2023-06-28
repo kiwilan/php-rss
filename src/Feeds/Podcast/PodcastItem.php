@@ -190,13 +190,13 @@ class PodcastItem
         return $this;
     }
 
-    public function duration(?int $duration, bool $convert = false): self
+    public function duration(int|float|null $duration, bool $convert = false): self
     {
         if (! $duration) {
             return $this;
         }
 
-        $this->duration = $duration;
+        $this->duration = intval($duration);
         $this->item['itunes:duration'] = $convert ? $this->convertDuration($duration) : $duration;
 
         return $this;
