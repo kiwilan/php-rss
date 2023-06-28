@@ -2,8 +2,10 @@
 
 namespace Kiwilan\Rss\Enums;
 
-enum ItunesExplicit: string
+enum ItunesExplicitEnum: string
 {
+    use ItunesEnumTrait;
+
     case yes = 'yes';
     case no = 'no';
     case clean = 'clean';

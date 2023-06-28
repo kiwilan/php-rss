@@ -4,6 +4,8 @@ namespace Kiwilan\Rss\Enums;
 
 enum ItunesCategoryEnum: string
 {
+    use ItunesEnumTrait;
+
     case arts = 'Arts';
     case business = 'Business';
     case comedy = 'Comedy';
@@ -23,4 +25,5 @@ enum ItunesCategoryEnum: string
     case technology = 'Technology';
     case true_crime = 'True Crime';
     case tv_film = 'TV &amp; Film';
+
 }

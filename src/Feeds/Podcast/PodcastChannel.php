@@ -4,7 +4,7 @@ namespace Kiwilan\Rss\Feeds\Podcast;
 
 use DateTime;
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
-use Kiwilan\Rss\Enums\ItunesExplicit;
+use Kiwilan\Rss\Enums\ItunesExplicitEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
@@ -35,7 +35,7 @@ class PodcastChannel extends FeedChannel
         protected ?string $ownerName = null, // `itunes:owner.name`
         protected ?string $ownerEmail = null, // `itunes:owner.email`, `googleplayEmail`
 
-        protected ?ItunesExplicit $explicit = null, // `itunes:explicit`, `googleplay:explicit`
+        protected ?ItunesExplicitEnum $explicit = null, // `itunes:explicit`, `googleplay:explicit`
         protected bool $isPrivate = false, // `itunesBlock`, `googleplayBlock`
 
         protected ?ItunesTypeEnum $type = null, // `itunesType`
@@ -235,7 +235,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function explicit(ItunesExplicit $explicit): self
+    public function explicit(ItunesExplicitEnum $explicit): self
     {
         $this->explicit = $explicit;
         $this->feed->setChannel([

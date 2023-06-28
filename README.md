@@ -47,7 +47,7 @@ $podcast = Feed::make()->podcast()
   ->generator('Ausha (https://www.ausha.co)')
   ->keywords(['films', 'critiques', 'comédie'])
   ->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com')
-  ->explicit(ItunesExplicit::yes)
+  ->explicit(ItunesExplicitEnum::yes)
   ->isPrivate()
   ->type(ItunesTypeEnum::episodic)
   ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
@@ -130,7 +130,7 @@ namespace App\Http\Controllers;
 
 use DateTime;
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
-use Kiwilan\Rss\Enums\ItunesExplicit;
+use Kiwilan\Rss\Enums\ItunesExplicitEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
@@ -155,7 +155,7 @@ class RssController extends Controller
             ->generator('Ausha (https://www.ausha.co)')
             ->keywords(['films', 'critiques', 'comédie'])
             ->author('2 Heures De Perdues', '2heuresdeperdues@gmail.com')
-            ->explicit(ItunesExplicit::yes)
+            ->explicit(ItunesExplicitEnum::yes)
             ->isPrivate()
             ->type(ItunesTypeEnum::episodic)
             ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)

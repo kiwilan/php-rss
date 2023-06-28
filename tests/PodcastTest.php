@@ -2,7 +2,7 @@
 
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesEpisodeTypeEnum;
-use Kiwilan\Rss\Enums\ItunesExplicit;
+use Kiwilan\Rss\Enums\ItunesExplicitEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
@@ -25,7 +25,7 @@ it('can make podcast feed', function () {
         ->author('2HDP')
         ->ownerName('2 Heures De Perdues')
         ->ownerEmail('2heuresdeperdues@gmail.com')
-        ->explicit(ItunesExplicit::yes)
+        ->explicit(ItunesExplicitEnum::yes)
         ->isPrivate()
         ->type(ItunesTypeEnum::episodic)
         ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews)
@@ -169,4 +169,18 @@ it('can make raw feed', function () {
     $xml = XmlReader::make($xml);
 
     expect($xml->root())->toBe('rss');
+});
+
+it('can read enums', function () {
+    $categories = ItunesCategoryEnum::toArray();
+    $episodeTypes = ItunesEpisodeTypeEnum::toArray();
+    $subCategories = ItunesSubCategoryEnum::toArray();
+    $explicit = ItunesExplicitEnum::toArray();
+    $types = ItunesTypeEnum::toArray();
+
+    expect($categories)->toBeArray();
+    expect($episodeTypes)->toBeArray();
+    expect($types)->toBeArray();
+    expect($subCategories)->toBeArray();
+    expect($explicit)->toBeArray();
 });

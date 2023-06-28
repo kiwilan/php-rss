@@ -2,7 +2,7 @@
 
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesEpisodeTypeEnum;
-use Kiwilan\Rss\Enums\ItunesExplicit;
+use Kiwilan\Rss\Enums\ItunesExplicitEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
@@ -26,7 +26,7 @@ $podcast = Feed::make()->podcast()
     ->author('2HDP')
     ->ownerName('2 Heures De Perdues')
     ->ownerEmail('2heuresdeperdues@gmail.com')
-    ->explicit(ItunesExplicit::yes)
+    ->explicit(ItunesExplicitEnum::yes)
     ->isPrivate()
     ->type(ItunesTypeEnum::episodic)
     ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews)
