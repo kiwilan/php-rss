@@ -1,6 +1,6 @@
 # PHP RSS
 
-![Banner with abstract data picture in background and PHP RSS title](https://github.com/kiwilan/php-rss/docs/banner.jpg)
+![Banner with abstract data picture in background and PHP RSS title](https://raw.githubusercontent.com/kiwilan/php-rss/main/docs/banner.jpg)
 
 [![php][php-version-src]][php-version-href]
 [![version][version-src]][version-href]
