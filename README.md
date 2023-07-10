@@ -1,6 +1,6 @@
 # PHP RSS
 
-![Banner with abstract data picture in background and PHP RSS title](docs/banner.jpg)
+![Banner with abstract data picture in background and PHP RSS title](https://github.com/kiwilan/php-rss/docs/banner.jpg)
 
 [![php][php-version-src]][php-version-href]
 [![version][version-src]][version-href]
@@ -177,6 +177,7 @@ composer test
 
 ## Resources
 
+-   <https://help.apple.com/itc/podcasts_connect/#/itcb54353390>
 -   <https://www.wakdev.com/fr/more/wiki/php-mysql/generation-dun-flux-rss-en-php.html>
 -   <https://podcasters.apple.com/support/1691-apple-podcasts-categories>
 -   <https://github.com/gpodder/podcast-feed-best-practice/blob/master/podcast-feed-best-practice.md>
@@ -186,7 +187,6 @@ composer test
 -   <https://castos.com/podcast-rss-feed/>
 -   <https://validator.livewire.io/>
 -   <https://podcastnamespace.org/>
--   <https://help.apple.com/itc/podcasts_connect/#/itcb54353390>
 -   <https://support.google.com/podcast-publishers/answer/9889544?visit_id=638227134075061333-1333811411&rd=1>
 
 ## Changelog
