@@ -31,23 +31,29 @@ class PodcastEnclosure
         return $this->type;
     }
 
-    public function setUrl(string $url): self
+    public function setUrl(?string $url): self
     {
-        $this->url = $url;
+        if ($url) {
+            $this->url = $url;
+        }
 
         return $this;
     }
 
-    public function setLength(int $length): self
+    public function setLength(?int $length): self
     {
-        $this->length = $length;
+        if ($length) {
+            $this->length = $length;
+        }
 
         return $this;
     }
 
-    public function setType(string $type): self
+    public function setType(?string $type): self
     {
-        $this->type = $type;
+        if ($type) {
+            $this->type = $type;
+        }
 
         return $this;
     }
