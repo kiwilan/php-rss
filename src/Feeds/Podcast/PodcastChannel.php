@@ -267,7 +267,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function addCategory(ItunesCategoryEnum $category, ?ItunesSubCategoryEnum $subCategory = null): self
+    public function addCategory(ItunesCategoryEnum $category, ItunesSubCategoryEnum $subCategory = null): self
     {
         $size = 1;
         if ($this->categories) {
