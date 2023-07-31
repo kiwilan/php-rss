@@ -5,6 +5,7 @@ namespace Kiwilan\Rss\Feeds\Podcast;
 use DateTime;
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesExplicitEnum;
+use Kiwilan\Rss\Enums\ItunesLanguageEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
@@ -21,9 +22,9 @@ class PodcastChannel extends FeedChannel
         protected Feed $feed,
         protected ?string $title = null, // `title`
         protected ?string $link = null, // `link`
-        protected ?string $subtitle = null, // `itunesSubtitle`
-        protected ?string $description = null, // `description`, `itunesSummary`, `googleplayDescription`
-        protected ?string $language = null, // `language`, `spotifyCountryOfOrigin`
+        protected ?string $subtitle = null, // `itunes:subtitle`
+        protected ?string $description = null, // `description`, `itunes:summary`, `googleplay:description`
+        protected ItunesLanguageEnum|string|null $language = null, // `language`, `spotify:countryOfOrigin`
         protected ?string $copyright = null, // `copyright`
         protected ?DateTime $lastUpdate = null, // `lastBuildDate`, `pubDate`
         protected ?string $webmaster = null, // `webMaster`
@@ -33,7 +34,7 @@ class PodcastChannel extends FeedChannel
 
         protected ?string $author = null, // `dc:creator`, `itunes:author`, `googleplay:author`
         protected ?string $ownerName = null, // `itunes:owner.name`
-        protected ?string $ownerEmail = null, // `itunes:owner.email`, `googleplayEmail`
+        protected ?string $ownerEmail = null, // `itunes:owner.email`, `googleplay:email`
 
         protected ?ItunesExplicitEnum $explicit = null, // `itunes:explicit`, `googleplay:explicit`
         protected bool $isPrivate = false, // `itunesBlock`, `googleplayBlock`
@@ -41,7 +42,7 @@ class PodcastChannel extends FeedChannel
         protected ?ItunesTypeEnum $type = null, // `itunesType`
         protected ?array $categories = null, // `category`
 
-        protected ?string $image = null, // `image`, `itunesImage`, `googleplayImage`
+        protected ?string $image = null, // `image`, `itunes:image`, `googleplay:image`
         protected array $items = [],
     ) {
         parent::__construct($feed);
@@ -96,9 +97,13 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function language(?string $language): self
+    public function language(ItunesLanguageEnum|string|null $language): self
     {
         $this->language = $language;
+        if ($language instanceof ItunesLanguageEnum) {
+            $language = $language->codeWithVariation(true);
+        }
+
         $this->feed->setChannel([
             'language' => $language,
             'spotify:countryOfOrigin' => $language,
