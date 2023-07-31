@@ -35,7 +35,7 @@ class Feed
         string $root = 'rss',
         string $version = '1.0',
         string $encoding = 'UTF-8',
-        ?bool $standalone = null,
+        bool $standalone = null,
         array $attributes = [],
     ): self {
         $this->root = $root;
