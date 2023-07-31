@@ -100,8 +100,9 @@ class PodcastChannel extends FeedChannel
     public function language(ItunesLanguageEnum|string|null $language): self
     {
         $this->language = $language;
+
         if ($language instanceof ItunesLanguageEnum) {
-            $language = $language->codeWithVariation(true);
+            $language = $language->codeLower();
         }
 
         $this->feed->setChannel([
@@ -275,6 +276,7 @@ class PodcastChannel extends FeedChannel
     public function addCategory(ItunesCategoryEnum $category, ItunesSubCategoryEnum $subCategory = null): self
     {
         $size = 1;
+
         if ($this->categories) {
             $size = count($this->categories) + 1;
         }
@@ -348,6 +350,7 @@ class PodcastChannel extends FeedChannel
     {
         if (is_array($item)) {
             $enclosure = $item['enclosure'] ?? null;
+
             if ($enclosure) {
                 $enclosureUrl = $enclosure['url'] ?? null;
                 $enclosureLength = $enclosure['length'] ?? null;
