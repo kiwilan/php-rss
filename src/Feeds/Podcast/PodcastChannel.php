@@ -279,21 +279,26 @@ class PodcastChannel extends FeedChannel
             $subCategory,
         ];
 
+        $value = $category->value;
+        $value = str_replace('&', '&amp;', $value);
+
         $categoryData = [
-            '__custom:category:'.$size => $category->value,
+            '__custom:category:'.$size => $value,
         ];
 
         $itunesKey = '__custom:itunes\\:category:'.$size;
         $categoryData[$itunesKey] = [
             '_attributes' => [
-                'text' => $category->value,
+                'text' => $value,
             ],
         ];
 
         if ($subCategory) {
+            $subValue = $subCategory->value;
+            $subValue = str_replace('&', '&amp;', $subValue);
             $categoryData[$itunesKey]['itunes:category'] = [
                 '_attributes' => [
-                    'text' => $subCategory->value,
+                    'text' => $subValue,
                 ],
             ];
         }
