@@ -51,3 +51,15 @@ it('can use languages', function () {
     expect($englishUnitedStates->code())->toBe('en-US');
     expect($englishUnitedStates->country())->toBe('English (United States)');
 });
+
+it('can use from key trait', function () {
+    $category = ItunesCategoryEnum::arts;
+    $categoryEnum = ItunesCategoryEnum::fromKey($category->name);
+
+    $language = ItunesLanguageEnum::englishUnitedStates;
+    $languageEnum = ItunesLanguageEnum::fromKey($language->name);
+
+    expect($categoryEnum->value)->toBe('Arts');
+    expect($languageEnum->code())->toBe('en-US');
+    expect(fn () => ItunesCategoryEnum::fromKey('invalid'))->toThrow(Exception::class);
+});

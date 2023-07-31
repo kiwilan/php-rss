@@ -40,6 +40,7 @@ class PodcastChannel extends FeedChannel
         protected bool $isPrivate = false, // `itunesBlock`, `googleplayBlock`
 
         protected ?ItunesTypeEnum $type = null, // `itunesType`
+        protected int $categoryIndex = 0,
         protected ?array $categories = null, // `category`
 
         protected ?string $image = null, // `image`, `itunes:image`, `googleplay:image`
@@ -275,12 +276,6 @@ class PodcastChannel extends FeedChannel
 
     public function addCategory(ItunesCategoryEnum $category, ItunesSubCategoryEnum $subCategory = null): self
     {
-        $size = 1;
-
-        if ($this->categories) {
-            $size = count($this->categories) + 1;
-        }
-
         $this->categories[] = [
             $category,
             $subCategory,
@@ -290,10 +285,10 @@ class PodcastChannel extends FeedChannel
         $value = str_replace('&', '&amp;', $value);
 
         $categoryData = [
-            '__custom:category:'.$size => $value,
+            '__custom:category:'.$this->categoryIndex => $value,
         ];
 
-        $itunesKey = '__custom:itunes\\:category:'.$size;
+        $itunesKey = '__custom:itunes\\:category:'.$this->categoryIndex;
         $categoryData[$itunesKey] = [
             '_attributes' => [
                 'text' => $value,
@@ -311,6 +306,44 @@ class PodcastChannel extends FeedChannel
         }
 
         $this->feed->setChannel($categoryData);
+        $this->categoryIndex++;
+
+        return $this;
+    }
+
+    public function addCategoryString(string $category, string $subCategory = null): self
+    {
+        $this->categories[] = [
+            $category,
+            $subCategory,
+        ];
+
+        $value = $category;
+        $value = str_replace('&', '&amp;', $value);
+
+        $categoryData = [
+            '__custom:category:'.$this->categoryIndex => $value,
+        ];
+
+        $itunesKey = '__custom:itunes\\:category:'.$this->categoryIndex;
+        $categoryData[$itunesKey] = [
+            '_attributes' => [
+                'text' => $value,
+            ],
+        ];
+
+        if ($subCategory) {
+            $subValue = $subCategory;
+            $subValue = str_replace('&', '&amp;', $subValue);
+            $categoryData[$itunesKey]['itunes:category'] = [
+                '_attributes' => [
+                    'text' => $subValue,
+                ],
+            ];
+        }
+
+        $this->feed->setChannel($categoryData);
+        $this->categoryIndex++;
 
         return $this;
     }

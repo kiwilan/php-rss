@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Rss\Enums;
 
-trait ItunesEnumTrait
+trait ItunesEnumToArrayTrait
 {
     public static function toArray()
     {

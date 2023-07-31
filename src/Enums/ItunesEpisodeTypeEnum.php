@@ -4,7 +4,8 @@ namespace Kiwilan\Rss\Enums;
 
 enum ItunesEpisodeTypeEnum: string
 {
-    use ItunesEnumTrait;
+    use ItunesEnumToArrayTrait;
+    use ItunesFromKey;
 
     case full = 'full';
     case trailer = 'trailer';

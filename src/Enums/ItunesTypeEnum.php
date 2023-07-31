@@ -4,7 +4,8 @@ namespace Kiwilan\Rss\Enums;
 
 enum ItunesTypeEnum: string
 {
-    use ItunesEnumTrait;
+    use ItunesEnumToArrayTrait;
+    use ItunesFromKey;
 
     case episodic = 'episodic';
     case serial = 'serial';

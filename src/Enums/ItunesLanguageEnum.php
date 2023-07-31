@@ -434,6 +434,24 @@ enum ItunesLanguageEnum: string
 
     case zulu = 'zulu';
 
+    public static function fromKey(string $key): self
+    {
+        $items = [];
+        foreach (ItunesLanguageEnum::cases() as $enum) {
+            $items[$enum->name] = $enum->value;
+        }
+
+        if (! array_key_exists($key, $items)) {
+            throw new \Exception('Key '.$key.' not found in '.self::class);
+        }
+
+        $value = $items[$key];
+
+        return self::from($value);
+
+        return ItunesLanguageEnum::french;
+    }
+
     public static function toArray(): array
     {
         $items = [];

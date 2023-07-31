@@ -4,7 +4,8 @@ namespace Kiwilan\Rss\Enums;
 
 enum ItunesCategoryEnum: string
 {
-    use ItunesEnumTrait;
+    use ItunesEnumToArrayTrait;
+    use ItunesFromKey;
 
     case arts = 'Arts';
 

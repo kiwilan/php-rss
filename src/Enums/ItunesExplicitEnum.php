@@ -4,7 +4,8 @@ namespace Kiwilan\Rss\Enums;
 
 enum ItunesExplicitEnum: string
 {
-    use ItunesEnumTrait;
+    use ItunesEnumToArrayTrait;
+    use ItunesFromKey;
 
     case yes = 'yes';
     case no = 'no';
