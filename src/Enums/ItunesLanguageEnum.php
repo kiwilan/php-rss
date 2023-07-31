@@ -4,8 +4,6 @@ namespace Kiwilan\Rss\Enums;
 
 enum ItunesLanguageEnum: string
 {
-    use ItunesEnumTrait;
-
     case afar = 'afar';
 
     case abkhazian = 'abkhazian';
@@ -436,7 +434,7 @@ enum ItunesLanguageEnum: string
 
     case zulu = 'zulu';
 
-    public static function toCountry(): array
+    public static function toArray(): array
     {
         $items = [];
 
