@@ -185,3 +185,71 @@ it('can read enums', function () {
     expect($subCategories)->toBeArray();
     expect($explicit)->toBeArray();
 });
+
+it('can use categories', function () {
+    $feed = Feed::make()->podcast()
+        ->title('2 Heures De Perdues')
+        ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews);
+
+    $categories = invade($feed)->categories;
+
+    expect($categories)->toBeArray();
+    expect($categories)->toHaveCount(1);
+    expect($categories[0][0])->toBeInstanceOf(ItunesCategoryEnum::class);
+    expect($categories[0][0])->toBe(ItunesCategoryEnum::tv_film);
+    expect($categories[0][1])->toBeInstanceOf(ItunesSubCategoryEnum::class);
+    expect($categories[0][1])->toBe(ItunesSubCategoryEnum::tv_film_film_reviews);
+
+    $feed = Feed::make()->podcast()
+        ->title('2 Heures De Perdues')
+        ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews)
+        ->addCategory(ItunesCategoryEnum::leisure, ItunesSubCategoryEnum::leisure_hobbies)
+        ->addCategory(ItunesCategoryEnum::fiction);
+
+    $categories = invade($feed)->categories;
+
+    expect($categories)->toBeArray();
+    expect($categories)->toHaveCount(3);
+
+    $feed = Feed::make()->podcast()
+        ->title('2 Heures De Perdues')
+        ->addCategory('TV & Film', 'Film Reviews');
+
+    $categories = invade($feed)->categories;
+    expect($categories[0][0])->toBe('TV & Film');
+    expect($categories[0][1])->toBe('Film Reviews');
+
+    $feed = Feed::make()->podcast()
+        ->title('2 Heures De Perdues')
+        ->addCategories([
+            [
+                'category' => ItunesCategoryEnum::tv_film,
+                'subCategory' => ItunesSubCategoryEnum::tv_film_film_reviews,
+            ],
+            [
+                'category' => ItunesCategoryEnum::leisure,
+                'subCategory' => ItunesSubCategoryEnum::leisure_hobbies,
+            ],
+            [
+                'category' => ItunesCategoryEnum::fiction,
+            ],
+        ]);
+
+    $categories = invade($feed)->categories;
+
+    expect($categories)->toBeArray();
+    expect($categories)->toHaveCount(3);
+
+    $feed = Feed::make()->podcast()
+        ->title('2 Heures De Perdues')
+        ->addCategories([
+            [
+                'category' => ItunesCategoryEnum::fiction->value,
+            ],
+        ]);
+
+    $categories = invade($feed)->categories;
+
+    expect($categories)->toBeArray();
+    expect($categories)->toHaveCount(1);
+});

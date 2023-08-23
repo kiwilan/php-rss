@@ -296,12 +296,13 @@ class PodcastChannel extends FeedChannel
                 continue;
             }
 
-            $enum = null;
+            if ($value[$main] instanceof ItunesCategoryEnum) {
+                $this->addCategory($value[$main], $value[$secondary] ?? null);
 
-            try {
-                $enum = ItunesCategoryEnum::fromKey($value[$main]);
-            } catch (\Throwable $th) {
+                continue;
             }
+
+            $enum = ItunesCategoryEnum::fromKey($value[$main], throwException: false);
             $subEnum = null;
 
             if (! $enum) {
