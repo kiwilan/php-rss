@@ -4,15 +4,15 @@ namespace Kiwilan\Rss\Enums;
 
 trait ItunesFromKey
 {
-    public static function fromKey(string $key): self
+    public static function fromKey(string $key)
     {
         $toArrayAvailable = false;
+        $array = [];
 
         try {
-            self::toArray();
+            $array = self::toArray();
             $toArrayAvailable = true;
         } catch (\Throwable $th) {
-
         }
 
         if (! $toArrayAvailable) {
@@ -23,9 +23,6 @@ trait ItunesFromKey
             throw new \Exception('Key '.$key.' not found in '.self::class);
         }
 
-        $array = self::toArray();
-        $value = $array[$key];
-
-        return self::from($value);
+        return self::tryFrom($array[$key]);
     }
 }

@@ -284,8 +284,58 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function addCategory(ItunesCategoryEnum $category, ItunesSubCategoryEnum $subCategory = null): self
+    /**
+     * Add multiple categories from array.
+     *
+     * @param  array<array{category:string,subCategory:string}>  $categories
+     */
+    public function addCategories(array $categories, string $main = 'category', string $secondary = 'subCategory'): self
     {
+        foreach ($categories as $key => $value) {
+            if (! array_key_exists($main, $value)) {
+                continue;
+            }
+
+            $enum = null;
+
+            try {
+                $enum = ItunesCategoryEnum::fromKey($value[$main]);
+            } catch (\Throwable $th) {
+            }
+            $subEnum = null;
+
+            if (! $enum) {
+                $this->addCategoryString($value[$main], $value[$secondary] ?? null);
+
+                continue;
+            }
+
+            if (array_key_exists($secondary, $value)) {
+                $subEnum = ItunesSubCategoryEnum::fromKey($value[$secondary]);
+            }
+
+            $this->addCategory($enum, $subEnum);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Add a category.
+     *
+     * @param  ItunesCategoryEnum|string  $category The main category, example: `TV & Film`
+     * @param  ItunesSubCategoryEnum|string|null  $subCategory The sub category, linked to the main category, example: `Film Reviews`
+     *
+     * @docs https://podcasters.apple.com/support/1691-apple-podcasts-categories
+     */
+    public function addCategory(ItunesCategoryEnum|string $category, ItunesSubCategoryEnum|string $subCategory = null): self
+    {
+        if (gettype($category) === 'string' && gettype($subCategory) === 'string') {
+            $this->addCategoryString($category, $subCategory);
+
+            return $this;
+        }
+
         $this->categories[] = [
             $category,
             $subCategory,
@@ -321,7 +371,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function addCategoryString(string $category, string $subCategory = null): self
+    private function addCategoryString(string $category, string $subCategory = null): self
     {
         $this->categories[] = [
             $category,
