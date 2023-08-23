@@ -2,6 +2,13 @@
 
 All notable changes to `php-rss` will be documented in this file.
 
+## 0.2.2 - 2023-08-23
+
+- Many fixes and improvements
+- Split `author()` into `author()`, `ownerName()`, `ownerEmail()`
+- Add `language()` parameter with `ItunesLanguageEnum` enum
+- Add `atomLink()`
+
 ## 0.2.1 - 2023-06-28
 
 - Remove `PodcastItem::class` required field
