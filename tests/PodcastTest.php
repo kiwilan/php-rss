@@ -14,6 +14,7 @@ it('can make podcast feed', function () {
     $podcast = Feed::make()->podcast()
         ->title('2 Heures De Perdues')
         ->link('https://www.2hdp.fr')
+        ->atomLink('https://www.2hdp.fr/xml')
         ->subtitle('Pourquoi gagner du temps quand on peut en perdre devant de mauvais films ?')
         ->description('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films')
         ->language('fr')
@@ -84,7 +85,7 @@ it('can make podcast feed', function () {
 
     expect($xml->root())->toBe('rss');
     expect($xml->find('title'))->toBe('2 Heures De Perdues');
-    expect($xml->find('atom:link')['@attributes']['href'])->toBe('https://www.2hdp.fr');
+    expect($xml->find('atom:link')['@attributes']['href'])->toBe('https://www.2hdp.fr/xml');
     expect($xml->find('link'))->toBe('https://www.2hdp.fr');
     expect($xml->find('description'))->toBe('Petit podcast de rigolos pour les amateurs de cinéma. Pourquoi gagner du temps quand on peut en perdre devant de mauvais films');
     expect($xml->find('language'))->toBe('fr');

@@ -22,6 +22,7 @@ class PodcastChannel extends FeedChannel
         protected Feed $feed,
         protected ?string $title = null, // `title`
         protected ?string $link = null, // `link`
+        protected ?string $atomLink = null, // `atom:link`
         protected ?string $subtitle = null, // `itunes:subtitle`
         protected ?string $description = null, // `description`, `itunes:summary`, `googleplay:description`
         protected ItunesLanguageEnum|string|null $language = null, // `language`, `spotify:countryOfOrigin`
@@ -63,6 +64,16 @@ class PodcastChannel extends FeedChannel
     {
         $this->link = $link;
         $this->feed->setChannel([
+            'link' => $link,
+        ]);
+
+        return $this;
+    }
+
+    public function atomLink(?string $link): self
+    {
+        $this->atomLink = $link;
+        $this->feed->setChannel([
             'atom:link' => [
                 '_attributes' => [
                     'href' => $link,
@@ -70,7 +81,6 @@ class PodcastChannel extends FeedChannel
                     'type' => 'application/rss+xml',
                 ],
             ],
-            'link' => $link,
         ]);
 
         return $this;
