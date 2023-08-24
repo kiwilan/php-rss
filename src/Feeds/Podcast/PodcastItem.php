@@ -336,21 +336,6 @@ class PodcastItem
         }
         $this->image($this->image);
 
-        // $this->required(['title', 'link', 'enclosure', 'publishDate']);
-
-        // if (! $this->guid) {
-        //     $this->guid = base64_encode($this->title.$this->publishDate->format(DateTime::RSS));
-        //     $this->item = [
-        //         'guid' => [
-        //             '_attributes' => [
-        //                 'isPermaLink' => 'false',
-        //             ],
-        //             '_value' => $this->guid,
-        //         ],
-        //         ...$this->item,
-        //     ];
-        // }
-
         return [
             ...$this->item,
 
