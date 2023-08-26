@@ -334,6 +334,15 @@ class PodcastItem
         return $this;
     }
 
+    public function isNotPrivate(): self
+    {
+        $this->block = false;
+        $this->item['itunes:block'] = 'no';
+        $this->item['googleplay:block'] = 'no';
+
+        return $this;
+    }
+
     private function convertDuration(): string
     {
         $duration = $this->duration;
@@ -394,6 +403,8 @@ class PodcastItem
 
         if ($this->block) {
             $this->isPrivate();
+        } else {
+            $this->isNotPrivate();
         }
 
         if (! empty($this->chapters)) {
