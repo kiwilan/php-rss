@@ -300,6 +300,7 @@ class PodcastItem
     private function isHtml(string $string): bool
     {
         $isHtml = false;
+
         if ($string !== strip_tags($string)) {
             $isHtml = true;
         }
@@ -317,7 +318,6 @@ class PodcastItem
                 throw new Exception("Podcast item `$field` is required");
             }
         }
-
     }
 
     public function get(): array
@@ -326,6 +326,7 @@ class PodcastItem
         $this->subtitle($this->subtitle);
         $this->description($this->description);
         $this->publishDate($this->publishDate);
+
         if ($this->enclosure) {
             $this->enclosure($this->enclosure->url(), $this->enclosure->length(), $this->enclosure->type());
         }
@@ -336,6 +337,7 @@ class PodcastItem
         $this->episodeType($this->episodeType);
         $this->season($this->season);
         $this->episode($this->episode);
+
         if ($this->isExplicit) {
             $this->isExplicit();
         }
@@ -344,8 +346,8 @@ class PodcastItem
         if (! $this->subtitle) {
             $subtitle = $this->description;
             $subtitle = strip_tags($subtitle);
-            $subtitle = substr($subtitle, 0, 255);
-            $this->subtitle = $subtitle;
+            $subtitle = substr($subtitle, 0, 252);
+            $this->subtitle("{$subtitle}...");
         }
 
         return [
