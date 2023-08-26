@@ -184,17 +184,20 @@ composer test
 
 ## Resources
 
--   <https://help.apple.com/itc/podcasts_connect/#/itcb54353390>
--   <https://www.wakdev.com/fr/more/wiki/php-mysql/generation-dun-flux-rss-en-php.html>
--   <https://podcasters.apple.com/support/1691-apple-podcasts-categories>
--   <https://github.com/gpodder/podcast-feed-best-practice/blob/master/podcast-feed-best-practice.md>
--   <https://www.podcastersroundtable.com/pm17/>
--   <https://www.castfeedvalidator.com/validate.php>
--   <https://help.podbean.com/support/solutions/articles/25000010756-how-to-set-ios11-itunes-feed-tags-in-your-podcast>
--   <https://castos.com/podcast-rss-feed/>
--   <https://validator.livewire.io/>
--   <https://podcastnamespace.org/>
--   <https://support.google.com/podcast-publishers/answer/9889544?visit_id=638227134075061333-1333811411&rd=1>
+### Specifications
+
+-   [Podcast namespace](https://podcastnamespace.org/)
+-   [Apple Podcasts](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
+-   [Google Podcasts](https://support.google.com/podcast-publishers/answer/9889544?hl=en)
+-   [Apple Podcasts categories](https://podcasters.apple.com/support/1691-apple-podcasts-categories)
+-   [gPodder](https://github.com/gpodder/podcast-feed-best-practice/blob/master/podcast-feed-best-practice.md)
+-   [Podcasters' Roundtable](https://www.podcastersroundtable.com/pm17/)
+-   [Podbean](https://help.podbean.com/support/solutions/articles/25000010756-how-to-set-ios11-itunes-feed-tags-in-your-podcast)
+
+### RSS validator
+
+-   <https://www.castfeedvalidator.com>
+-   <https://podba.se/validate>
 
 ## Changelog
 
