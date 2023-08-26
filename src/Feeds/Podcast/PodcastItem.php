@@ -341,9 +341,15 @@ class PodcastItem
         }
         $this->image($this->image);
 
+        if (! $this->subtitle) {
+            $subtitle = $this->description;
+            $subtitle = strip_tags($subtitle);
+            $subtitle = substr($subtitle, 0, 255);
+            $this->subtitle = $subtitle;
+        }
+
         return [
             ...$this->item,
-
         ];
     }
 }
