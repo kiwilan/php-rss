@@ -26,7 +26,7 @@ PHP package to generate RSS feeds with presets.
 
 ### Roadmap
 
--   [ ] Add JSON feed from <https://github.com/bcomnes/jsonfeed-to-rss>
+-   [ ] Add JSON feed from <https://github.com/bcomnes/jsonfeed-to-rss> and <https://pawelgrzybek.com/simple-rss-atom-and-json-feed-for-your-blog>
 -   [ ] Add blog feed
 -   [ ] Add atom option
 
