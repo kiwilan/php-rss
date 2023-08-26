@@ -20,6 +20,16 @@ PHP package to generate RSS feeds with presets.
 | Podcast |    ✅     | `itunes`, `googleplay` |
 |   Raw   |    ✅     |                        |
 
+## Features
+
+// TODO
+
+### Roadmap
+
+-   [ ] Add JSON feed from <https://github.com/bcomnes/jsonfeed-to-rss>
+-   [ ] Add blog feed
+-   [ ] Add atom option
+
 ## Installation
 
 You can install the package via composer:
