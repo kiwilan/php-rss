@@ -209,6 +209,10 @@ composer test
 -   <https://www.castfeedvalidator.com>
 -   <https://podba.se/validate>
 
+### Feed applications
+
+-   [kiwilan/feedrender](https://github.com/kiwilan/feedrender): Node.js application to render RSS feed as HTML page
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
