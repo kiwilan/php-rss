@@ -32,7 +32,11 @@ composer require kiwilan/php-rss
 
 ### Podcast
 
-Podcast RSS feed is quite old and has a lot of different versions. This package is based on the [Podcast namespace](https://podcastnamespace.org/) and the [Apple Podcasts tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390).
+Podcast RSS feed is quite old and has a lot of different versions.
+
+-   [Podcast namespace](https://podcastnamespace.org/)
+-   [Apple Podcasts](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
+-   [Google Podcasts](https://support.google.com/podcast-publishers/answer/9889544?hl=en)
 
 ```php
 $podcast = Feed::make()->podcast()
@@ -50,7 +54,7 @@ $podcast = Feed::make()->podcast()
   ->author('2HDP')
   ->ownerName('2 Heures De Perdues')
   ->ownerEmail('2heuresdeperdues@gmail.com')
-  ->explicit(ItunesExplicitEnum::yes)
+  ->isExplicit()
   ->isPrivate()
   ->type(ItunesTypeEnum::episodic)
   ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_films_film_reviews)
@@ -74,7 +78,7 @@ $item1 = PodcastItem::make()
   ->episodeType(ItunesEpisodeTypeEnum::full)
   ->season(9)
   ->episode(34)
-  ->isExplicit(false)
+  ->isNotExplicit()
   ->image('https://image.ausha.co/XboDHYC69Oorw8MBObAkQ2sTPdxGTkexH3nYQ8Ky_1400x1400.jpeg?t=1619074925');
 
 $podcast->addItem($item1); // Add item to podcast
