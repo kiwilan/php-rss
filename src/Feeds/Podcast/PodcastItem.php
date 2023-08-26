@@ -16,6 +16,7 @@ class PodcastItem
         protected ?string $guid = null, // `guid`
         protected ?string $subtitle = null, // `itunes:subtitle`
         protected ?string $description = null, // `description`, `content:encoded`
+        protected ?string $summary = null, // `itunes:summary`
         protected ?DateTime $publishDate = null, // `pubDate`
         protected ?PodcastEnclosure $enclosure = null, // `enclosure`
         protected ?string $link = null, // `link`
@@ -74,11 +75,11 @@ class PodcastItem
             return $this;
         }
 
-        $useHTML = $this->useHTML($subtitle);
+        $isHtml = $this->isHtml($subtitle);
 
         $this->subtitle = $subtitle;
 
-        if ($useHTML) {
+        if ($isHtml) {
             $this->item['itunes:subtitle'] = [
                 '_cdata' => $subtitle,
             ];
@@ -95,11 +96,14 @@ class PodcastItem
             return $this;
         }
 
-        $useHTML = $this->useHTML($description);
+        $isHtml = $this->isHtml($description);
 
         $this->description = $description;
 
-        if ($useHTML) {
+        if ($isHtml) {
+            $this->item['itunes:summary'] = [
+                '_cdata' => $description,
+            ];
             $this->item['description'] = [
                 '_cdata' => $description,
             ];
@@ -107,6 +111,7 @@ class PodcastItem
                 '_cdata' => $description,
             ];
         } else {
+            $this->item['itunes:summary'] = $description;
             $this->item['description'] = $description;
             $this->item['content:encoded'] = $description;
         }
@@ -292,14 +297,14 @@ class PodcastItem
         return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
     }
 
-    private function useHTML(string $string): bool
+    private function isHtml(string $string): bool
     {
-        $useHTML = false;
+        $isHtml = false;
         if ($string !== strip_tags($string)) {
-            $useHTML = true;
+            $isHtml = true;
         }
 
-        return $useHTML;
+        return $isHtml;
     }
 
     /**
