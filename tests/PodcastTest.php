@@ -2,7 +2,6 @@
 
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesEpisodeTypeEnum;
-use Kiwilan\Rss\Enums\ItunesExplicitEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
 use Kiwilan\Rss\Feed;
@@ -26,7 +25,7 @@ it('can make podcast feed', function () {
         ->author('2HDP')
         ->ownerName('2 Heures De Perdues')
         ->ownerEmail('2heuresdeperdues@gmail.com')
-        ->explicit(ItunesExplicitEnum::yes)
+        ->isExplicit()
         ->isPrivate()
         ->type(ItunesTypeEnum::episodic)
         ->addCategory(ItunesCategoryEnum::tv_film, ItunesSubCategoryEnum::tv_film_film_reviews)
@@ -63,7 +62,11 @@ it('can make podcast feed', function () {
             url: 'https://chtbl.com/track/47E579/https://audio.ausha.co/B4mpWfDq5KDa.mp3?t=1685693288',
             length: 56898528,
             type: 'audio/mpeg'
-        );
+        )
+        ->episodeType('full')
+        ->addChapter(start: '00:00:00', title: 'Chapter 1')
+        ->addChapter(start: '00:10:00', title: 'Chapter 2')
+        ->addChapter(start: '00:20:00', title: 'Chapter 3');
 
     $podcast->addItem($item1);
     $podcast->addItem([
@@ -103,7 +106,7 @@ it('can make podcast feed', function () {
     expect($xml->find('itunes:name'))->toBe('2 Heures De Perdues');
     expect($xml->find('itunes:email'))->toBe('2heuresdeperdues@gmail.com');
     expect($xml->find('itunes:explicit'))->toBe('yes');
-    expect($xml->find('itunes:block'))->toBe('Yes');
+    expect($xml->find('itunes:block'))->toBe('yes');
     expect($xml->find('itunes:type'))->toBe('episodic');
 
     $categories = $xml->find('category');
@@ -176,14 +179,12 @@ it('can read enums', function () {
     $categories = ItunesCategoryEnum::toArray();
     $episodeTypes = ItunesEpisodeTypeEnum::toArray();
     $subCategories = ItunesSubCategoryEnum::toArray();
-    $explicit = ItunesExplicitEnum::toArray();
     $types = ItunesTypeEnum::toArray();
 
     expect($categories)->toBeArray();
     expect($episodeTypes)->toBeArray();
     expect($types)->toBeArray();
     expect($subCategories)->toBeArray();
-    expect($explicit)->toBeArray();
 });
 
 it('can use categories', function () {
