@@ -27,7 +27,9 @@ class PodcastItem
         protected ?int $season = null, // `itunes:season`
         protected ?int $episode = null, // `itunes:episode`
         protected bool $isExplicit = false, // `itunes:explicit`, `googleplay:explicit`
+        protected bool $block = false, // `itunes:block`, `googleplay:block`
         protected ?string $image = null, // `itunes:image`, `googleplay:image`
+        protected array $chapters = [], // `psc:chapters`
         protected array $item = [],
     ) {
     }
@@ -101,6 +103,9 @@ class PodcastItem
         $this->description = $description;
 
         if ($isHtml) {
+            $this->item['googleplay:description'] = [
+                '_cdata' => $description,
+            ];
             $this->item['itunes:summary'] = [
                 '_cdata' => $description,
             ];
@@ -111,6 +116,7 @@ class PodcastItem
                 '_cdata' => $description,
             ];
         } else {
+            $this->item['googleplay:description'] = $description;
             $this->item['itunes:summary'] = $description;
             $this->item['description'] = $description;
             $this->item['content:encoded'] = $description;
@@ -210,10 +216,14 @@ class PodcastItem
     /**
      * Episode type: `full`, `trailer`, `bonus`. Default: `full`.
      */
-    public function episodeType(?ItunesEpisodeTypeEnum $episodeType): self
+    public function episodeType(ItunesEpisodeTypeEnum|string|null $episodeType): self
     {
         if (! $episodeType) {
             return $this;
+        }
+
+        if (is_string($episodeType)) {
+            $episodeType = ItunesEpisodeTypeEnum::tryFrom($episodeType);
         }
 
         $this->episodeType = $episodeType;
@@ -230,6 +240,7 @@ class PodcastItem
 
         $this->season = $season;
         $this->item['itunes:season'] = $this->season;
+        $this->item['podcast:season'] = $this->season;
 
         return $this;
     }
@@ -242,6 +253,7 @@ class PodcastItem
 
         $this->episode = $episode;
         $this->item['itunes:episode'] = $this->episode;
+        $this->item['podcast:episode'] = $this->episode;
 
         return $this;
     }
@@ -250,10 +262,23 @@ class PodcastItem
     {
         $this->isExplicit = true;
         $this->item['itunes:explicit'] = 'yes';
+        $this->item['googleplay:explicit'] = 'yes';
 
         return $this;
     }
 
+    public function isNotExplicit(): self
+    {
+        $this->isExplicit = true;
+        $this->item['itunes:explicit'] = 'no';
+        $this->item['googleplay:explicit'] = 'no';
+
+        return $this;
+    }
+
+    /**
+     * Podcast image, for `image`, `itunes:image`, `googleplay:image`.
+     */
     public function image(?string $image): self
     {
         if (! $image) {
@@ -261,6 +286,12 @@ class PodcastItem
         }
 
         $this->image = $image;
+
+        $this->item['image'] = [
+            'url' => $image,
+            'title' => $this->title,
+            'link' => $this->link,
+        ];
         $this->item['itunes:image'] = [
             '_attributes' => [
                 'href' => $image,
@@ -275,14 +306,30 @@ class PodcastItem
         return $this;
     }
 
-    public function chapters(): self
+    /**
+     * Add chapters to the episode, for `psc:chapters`.
+     *
+     * @param  string  $start  Start time in seconds, e.g. `00:06:00`.
+     * @param  string  $title  Chapter title.
+     */
+    public function addChapter(string $start, string $title): self
     {
-        $this->item['psc:chapters'] = [
-            '_attributes' => [
-                'version' => '1.1',
-            ],
-            '_value' => '',
+        $this->chapters[] = [
+            'start' => $start,
+            'title' => $title,
         ];
+
+        return $this;
+    }
+
+    /**
+     * Block the episode for crawlers, for `itunes:block`, `googleplay:block`.
+     */
+    public function isPrivate(): self
+    {
+        $this->block = true;
+        $this->item['itunes:block'] = 'yes';
+        $this->item['googleplay:block'] = 'yes';
 
         return $this;
     }
@@ -340,10 +387,33 @@ class PodcastItem
 
         if ($this->isExplicit) {
             $this->isExplicit();
+        } else {
+            $this->isNotExplicit();
         }
         $this->image($this->image);
 
-        if (! $this->subtitle) {
+        if ($this->block) {
+            $this->isPrivate();
+        }
+
+        if (! empty($this->chapters)) {
+            $this->item['psc:chapters'] = [
+                '_attributes' => [
+                    'version' => '1.1',
+                ],
+            ];
+
+            foreach ($this->chapters as $chapter) {
+                $this->item['psc:chapters']['psc:chapter'][] = [
+                    '_attributes' => [
+                        'start' => $chapter['start'],
+                        'title' => $chapter['title'],
+                    ],
+                ];
+            }
+        }
+
+        if (! $this->subtitle && $this->description) {
             $subtitle = $this->description;
             $subtitle = strip_tags($subtitle);
             $subtitle = substr($subtitle, 0, 252);
