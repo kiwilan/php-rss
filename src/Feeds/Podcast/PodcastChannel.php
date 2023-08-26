@@ -4,7 +4,6 @@ namespace Kiwilan\Rss\Feeds\Podcast;
 
 use DateTime;
 use Kiwilan\Rss\Enums\ItunesCategoryEnum;
-use Kiwilan\Rss\Enums\ItunesExplicitEnum;
 use Kiwilan\Rss\Enums\ItunesLanguageEnum;
 use Kiwilan\Rss\Enums\ItunesSubCategoryEnum;
 use Kiwilan\Rss\Enums\ItunesTypeEnum;
@@ -37,7 +36,7 @@ class PodcastChannel extends FeedChannel
         protected ?string $ownerName = null, // `itunes:owner.name`
         protected ?string $ownerEmail = null, // `itunes:owner.email`, `googleplay:email`
 
-        protected ?ItunesExplicitEnum $explicit = null, // `itunes:explicit`, `googleplay:explicit`
+        protected bool $isExplicit = false, // `itunes:explicit`, `googleplay:explicit`
         protected bool $isPrivate = false, // `itunesBlock`, `googleplayBlock`
 
         protected ?ItunesTypeEnum $type = null, // `itunesType`
@@ -45,6 +44,9 @@ class PodcastChannel extends FeedChannel
         protected ?array $categories = null, // `category`
 
         protected ?string $image = null, // `image`, `itunes:image`, `googleplay:image`
+
+        protected ?string $newFeedUrl = null, // `itunes:new-feed-url`
+
         protected array $items = [],
     ) {
         parent::__construct($feed);
@@ -252,12 +254,23 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function explicit(ItunesExplicitEnum $explicit): self
+    public function isExplicit(): self
     {
-        $this->explicit = $explicit;
+        $this->isExplicit = true;
         $this->feed->setChannel([
-            'itunes:explicit' => $explicit->value,
-            'googleplay:explicit' => $explicit->value,
+            'itunes:explicit' => 'yes',
+            'googleplay:explicit' => 'yes',
+        ]);
+
+        return $this;
+    }
+
+    public function isNotExplicit(): self
+    {
+        $this->isExplicit = false;
+        $this->feed->setChannel([
+            'itunes:explicit' => 'no',
+            'googleplay:explicit' => 'no',
         ]);
 
         return $this;
@@ -267,8 +280,8 @@ class PodcastChannel extends FeedChannel
     {
         $this->isPrivate = true;
         $this->feed->setChannel([
-            'itunes:block' => 'Yes',
-            'googleplay:block' => 'Yes',
+            'itunes:block' => 'yes',
+            'googleplay:block' => 'yes',
         ]);
 
         return $this;
@@ -435,6 +448,23 @@ class PodcastChannel extends FeedChannel
                     'href' => $image,
                 ],
             ],
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * Set new feed url for podcast, for `itunes:new-feed-url`.
+     */
+    public function newFeedUrl(?string $newFeedUrl): self
+    {
+        if (! $newFeedUrl) {
+            return $this;
+        }
+
+        $this->newFeedUrl = $newFeedUrl;
+        $this->feed->setChannel([
+            'itunes:new-feed-url' => $newFeedUrl,
         ]);
 
         return $this;
