@@ -24,8 +24,8 @@ class PodcastItem
         protected ?array $keywords = null, // `itunes:keywords`
         protected ?int $duration = null, // `itunes:duration`
         protected ItunesEpisodeTypeEnum $episodeType = ItunesEpisodeTypeEnum::full, // `itunes:episodeType`
-        protected ?int $season = null, // `itunes:season`
-        protected ?int $episode = null, // `itunes:episode`
+        protected ?string $season = null, // `itunes:season`, `podcast:season`
+        protected ?string $episode = null, // `itunes:episode`, `podcast:episode`
         protected bool $isExplicit = false, // `itunes:explicit`, `googleplay:explicit`
         protected bool $block = false, // `itunes:block`, `googleplay:block`
         protected ?string $image = null, // `itunes:image`, `googleplay:image`
@@ -232,7 +232,7 @@ class PodcastItem
         return $this;
     }
 
-    public function season(?int $season): self
+    public function season(?string $season): self
     {
         if (! $season) {
             return $this;
@@ -245,7 +245,7 @@ class PodcastItem
         return $this;
     }
 
-    public function episode(?int $episode): self
+    public function episode(?string $episode): self
     {
         if (! $episode) {
             return $this;
