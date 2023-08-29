@@ -88,7 +88,6 @@ $item1 = PodcastItem::make()
   ->episodeType(ItunesEpisodeTypeEnum::full)
   ->season(9)
   ->episode(34)
-  ->isNotExplicit()
   ->image('https://image.ausha.co/XboDHYC69Oorw8MBObAkQ2sTPdxGTkexH3nYQ8Ky_1400x1400.jpeg?t=1619074925');
 
 $podcast->addItem($item1); // Add item to podcast

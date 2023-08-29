@@ -265,7 +265,7 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
-    public function isNotExplicit(): self
+    private function isNotExplicit(): self
     {
         $this->isExplicit = false;
         $this->feed->setChannel([
