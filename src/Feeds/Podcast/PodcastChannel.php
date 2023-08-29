@@ -144,8 +144,8 @@ class PodcastChannel extends FeedChannel
 
         $this->lastUpdate = $lastUpdate;
         $this->feed->setChannel([
-            'lastBuildDate' => $lastUpdate->format(DateTime::RSS),
-            'pubDate' => $lastUpdate->format(DateTime::RSS),
+            'lastBuildDate' => $lastUpdate?->format(DateTime::RSS),
+            'pubDate' => $lastUpdate?->format(DateTime::RSS),
         ]);
 
         return $this;
