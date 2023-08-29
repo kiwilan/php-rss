@@ -14,6 +14,9 @@ class RawChannel extends FeedChannel
         parent::__construct($feed);
     }
 
+    /**
+     * Add data to the channel.
+     */
     public function channel(array $data): self
     {
         $this->feed->setChannel([
@@ -23,6 +26,9 @@ class RawChannel extends FeedChannel
         return $this;
     }
 
+    /**
+     * Add an item to the channel.
+     */
     public function addItem(array $item): self
     {
         $this->items[] = $item;

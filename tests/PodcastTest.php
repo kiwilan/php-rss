@@ -58,6 +58,7 @@ it('can make podcast feed', function () {
         ->title('Movie 1')
         ->link('https://podcast.ausha.co/2-heures-de-perdues/peau-d-ane')
         ->publishDate('2023-06-14 08:39:25')
+        ->autoGuid()
         ->enclosure(
             url: 'https://chtbl.com/track/47E579/https://audio.ausha.co/B4mpWfDq5KDa.mp3?t=1685693288',
             length: 56898528,
@@ -121,6 +122,11 @@ it('can make podcast feed', function () {
     expect($xml->find('itunes:image')['@attributes']['href'])->toBe('https://raw.githubusercontent.com/kiwilan/php-rss/main/tests/examples/folder.jpeg');
     expect($xml->find('item'))->toBeArray();
     expect($xml->find('item'))->toHaveCount(3);
+
+    $autoGuid = '4d6f76696520312d323032332d30362d3134';
+    $items = $xml->find('item');
+    $last = $items[count($items) - 1];
+    expect($last['guid']['@content'])->toBe($autoGuid);
 });
 
 it('can save xml', function () {

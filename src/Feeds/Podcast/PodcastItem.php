@@ -14,6 +14,7 @@ class PodcastItem
     protected function __construct(
         protected ?string $title = null, // `title`
         protected ?string $guid = null, // `guid`
+        protected bool $autoGuid = false,
         protected ?string $subtitle = null, // `itunes:subtitle`
         protected ?string $description = null, // `description`, `content:encoded`
         protected ?string $summary = null, // `itunes:summary`
@@ -52,7 +53,9 @@ class PodcastItem
     }
 
     /**
-     * Unique identifier for the episode, optional, can be auto-generated.
+     * Unique identifier for the episode.
+     *
+     * Can be auto-generated with `autoGuid()`.
      */
     public function guid(?string $guid, bool $isPermaLink = false): self
     {
@@ -71,6 +74,23 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Auto-generate a unique identifier for the episode from `title` and `publishDate`.
+     *
+     * WARNING:
+     * - If you change `title` or `publishDate` after the guid will be updated (and it's a problem for podcast apps)
+     * - If `guid` is set, it will be used instead
+     */
+    public function autoGuid(): self
+    {
+        $this->autoGuid = true;
+
+        return $this;
+    }
+
+    /**
+     * Subtitle, for `itunes:subtitle`.
+     */
     public function subtitle(?string $subtitle): self
     {
         if (! $subtitle) {
@@ -92,6 +112,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Description, for `itunes:summary`, `googleplay:description`, `description`, `content:encoded`.
+     */
     public function description(?string $description): self
     {
         if (! $description) {
@@ -125,6 +148,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Publish date, for `pubDate`.
+     */
     public function publishDate(DateTime|string|null $publishDate): self
     {
         if (! $publishDate) {
@@ -141,6 +167,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Enclosure with direct URL of episode, length and type for `enclosure`.
+     */
     public function enclosure(?string $url, ?int $length, ?string $type): self
     {
         $enclosure = PodcastEnclosure::make()
@@ -154,6 +183,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Link to the episode, for `link`.
+     */
     public function link(?string $link): self
     {
         if (! $link) {
@@ -166,6 +198,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Author, for `dc:creator`, `author`, `itunes:author`, `googleplay:author`.
+     */
     public function author(?string $author): self
     {
         if (! $author) {
@@ -187,6 +222,8 @@ class PodcastItem
     }
 
     /**
+     * Keywords, for `itunes:keywords`.
+     *
      * @param  string[]|null  $keywords
      */
     public function keywords(?array $keywords): self
@@ -201,6 +238,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Duration in seconds, for `itunes:duration`.
+     */
     public function duration(int|float|null $duration, bool $convert = false): self
     {
         if (! $duration) {
@@ -232,6 +272,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Season number, for `itunes:season`, `podcast:season`.
+     */
     public function season(string|int|null $season): self
     {
         if (! $season) {
@@ -245,6 +288,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Episode number, for `itunes:episode`, `podcast:episode`.
+     */
     public function episode(string|int|null $episode): self
     {
         if (! $episode) {
@@ -258,6 +304,9 @@ class PodcastItem
         return $this;
     }
 
+    /**
+     * Explicit content, for `itunes:explicit`, `googleplay:explicit`.
+     */
     public function isExplicit(): self
     {
         $this->isExplicit = true;
@@ -267,7 +316,7 @@ class PodcastItem
         return $this;
     }
 
-    public function isNotExplicit(): self
+    private function isNotExplicit(): self
     {
         $this->isExplicit = true;
         $this->item['itunes:explicit'] = 'no';
@@ -334,7 +383,7 @@ class PodcastItem
         return $this;
     }
 
-    public function isNotPrivate(): self
+    private function isNotPrivate(): self
     {
         $this->block = false;
         $this->item['itunes:block'] = 'no';
@@ -429,6 +478,12 @@ class PodcastItem
             $subtitle = strip_tags($subtitle);
             $subtitle = substr($subtitle, 0, 252);
             $this->subtitle("{$subtitle}...");
+        }
+
+        if ($this->autoGuid && ! $this->guid) {
+            $name = "{$this->title}-{$this->publishDate->format('Y-m-d')}";
+            $guid = bin2hex($name);
+            $this->guid($guid);
         }
 
         return [

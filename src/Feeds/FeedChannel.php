@@ -12,6 +12,9 @@ class FeedChannel
     ) {
     }
 
+    /**
+     * Create a new instance of `FeedChannel`.
+     */
     public static function make(Feed $feed): static
     {
         return new static($feed);
@@ -37,6 +40,9 @@ class FeedChannel
         );
     }
 
+    /**
+     * Save the feed to a file.
+     */
     public function save(string $path): bool
     {
         return file_put_contents($path, $this->get()) !== false;
