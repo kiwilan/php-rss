@@ -2,6 +2,10 @@
 
 All notable changes to `php-rss` will be documented in this file.
 
+## v0.3.02 - 2023-08-29
+
+- Fix a minor bug for `lastUpdate` with `format()` method.
+
 ## v0.3.01 - 2023-08-29
 
 - add `autoGuid()` to `PodcastItem::class` to generate a GUID if none is set, based on the `title` and `pubDate` properties
