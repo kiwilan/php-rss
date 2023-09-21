@@ -23,7 +23,7 @@ class PodcastChannel extends FeedChannel
         protected ?string $link = null, // `link`
         protected ?string $atomLink = null, // `atom:link`
         protected ?string $subtitle = null, // `itunes:subtitle`
-        protected ?string $description = null, // `description`, `itunes:summary`, `googleplay:description`
+        protected ?string $description = null, // `description`, `itunes:summary`
         protected ItunesLanguageEnum|string|null $language = null, // `language`, `spotify:countryOfOrigin`
         protected ?string $copyright = null, // `copyright`
         protected ?DateTime $lastUpdate = null, // `lastBuildDate`, `pubDate`
@@ -98,13 +98,15 @@ class PodcastChannel extends FeedChannel
         return $this;
     }
 
+    /**
+     * Description, for `itunes:summary`, `description`
+     */
     public function description(?string $description): self
     {
-        $this->description = $description;
+        $this->description = strip_tags($description);
         $this->feed->setChannel([
             'description' => $description,
             'itunes:summary' => $description,
-            'googleplay:description' => $description,
         ]);
 
         return $this;

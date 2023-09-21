@@ -16,8 +16,8 @@ class PodcastItem
         protected ?string $guid = null, // `guid`
         protected bool $autoGuid = false,
         protected ?string $subtitle = null, // `itunes:subtitle`
-        protected ?string $description = null, // `description`, `content:encoded`
-        protected ?string $summary = null, // `itunes:summary`
+        protected ?string $description = null, // `description`, `itunes:summary`
+        protected ?string $content = null, // `content:encoded`
         protected ?DateTime $publishDate = null, // `pubDate`
         protected ?PodcastEnclosure $enclosure = null, // `enclosure`
         protected ?string $link = null, // `link`
@@ -113,37 +113,31 @@ class PodcastItem
     }
 
     /**
-     * Description, for `itunes:summary`, `googleplay:description`, `description`, `content:encoded`.
+     * Description, for `itunes:summary`, `description`
      */
-    public function description(?string $description): self
+    public function description(?string $description = null): self
     {
         if (! $description) {
             return $this;
         }
 
-        $isHtml = $this->isHtml($description);
-
         $this->description = $description;
 
-        if ($isHtml) {
-            $this->item['googleplay:description'] = [
-                '_cdata' => $description,
-            ];
-            $this->item['itunes:summary'] = [
-                '_cdata' => $description,
-            ];
-            $this->item['description'] = [
-                '_cdata' => $description,
-            ];
-            $this->item['content:encoded'] = [
-                '_cdata' => $description,
-            ];
-        } else {
-            $this->item['googleplay:description'] = $description;
-            $this->item['itunes:summary'] = $description;
-            $this->item['description'] = $description;
-            $this->item['content:encoded'] = $description;
-        }
+        $description = strip_tags($description);
+        $this->item['itunes:summary'] = $description;
+        $this->item['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Content, for `content:encoded`.
+     */
+    public function content(?string $content = null): self
+    {
+        $this->item['content:encoded'] = [
+            '_cdata' => $content,
+        ];
 
         return $this;
     }
@@ -430,6 +424,7 @@ class PodcastItem
         $this->title($this->title);
         $this->subtitle($this->subtitle);
         $this->description($this->description);
+        $this->content($this->content);
         $this->publishDate($this->publishDate);
 
         if ($this->enclosure) {

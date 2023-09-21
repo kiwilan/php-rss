@@ -47,6 +47,7 @@ Podcast RSS feed is quite old and has a lot of different versions.
 -   [Podcast namespace](https://podcastnamespace.org/)
 -   [Apple Podcasts](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
 -   [Google Podcasts](https://support.google.com/podcast-publishers/answer/9889544?hl=en)
+-   [podcast-standard](https://podcast-standard.org/podcast_standard/)
 
 ```php
 $podcast = Feed::make()->podcast()
