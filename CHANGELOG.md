@@ -2,6 +2,11 @@
 
 All notable changes to `php-rss` will be documented in this file.
 
+## v0.3.10 - 2023-09-21
+
+- PodcastItem: add `content` field and remove `content:encoded` from `description` field
+- PodcastChannel: remove `googleplay:description` from `description` field
+
 ## v0.3.02 - 2023-08-29
 
 - Fix a minor bug for `lastUpdate` with `format()` method.
