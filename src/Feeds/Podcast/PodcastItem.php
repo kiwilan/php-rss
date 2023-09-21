@@ -115,7 +115,7 @@ class PodcastItem
     /**
      * Description, for `itunes:summary`, `description`
      */
-    public function description(?string $description = null): self
+    public function description(string $description = null): self
     {
         if (! $description) {
             return $this;
@@ -133,7 +133,7 @@ class PodcastItem
     /**
      * Content, for `content:encoded`.
      */
-    public function content(?string $content = null): self
+    public function content(string $content = null): self
     {
         $this->item['content:encoded'] = [
             '_cdata' => $content,
