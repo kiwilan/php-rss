@@ -2,6 +2,10 @@
 
 All notable changes to `php-rss` will be documented in this file.
 
+## v0.3.11 - 2023-09-24
+
+- `content:encoded` option fixed
+
 ## v0.3.10 - 2023-09-21
 
 - PodcastItem: add `content` field and remove `content:encoded` from `description` field
