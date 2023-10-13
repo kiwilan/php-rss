@@ -16,4 +16,9 @@ trait ItunesEnumToArrayTrait
 
         return $enums;
     }
+
+    public static function toDatabase()
+    {
+        return self::toArray();
+    }
 }
